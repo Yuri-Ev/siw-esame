@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,8 @@ public class PortaleController {
 		return "home.html";
 	}
 	
-	@GetMapping("/user/{id}")
+//					/{id}
+	@GetMapping("/user")
 	public String getUserPage(Model model) {
 	    return "user.html";
 	}
@@ -43,7 +46,7 @@ public class PortaleController {
 		return "chef.html";
 	}
 	
-	@GetMapping("/piatti")
+	@GetMapping("/piatto")
 	public String getPiatti () {
 		return "piatto.html";
 	}
@@ -70,18 +73,19 @@ public class PortaleController {
 	
 	@PostMapping("/admin/buffet")
 	public String addBuffet(@PathVariable("id") Long id, Model model) {
-	    model.addAttribute("buffet", this.buffetService.findById(id));
+	    model.addAttribute("buffet", this.buffetService.searchById(id));
 		return "buffet.html";
 	}
 	
-	@GetMapping("/admin/deleteBuffet/{id}")
-	public String toDeleteBuffet(@PathVariable("id") Long id, Model model) {
-	    model.addAttribute("buffet", this.buffetService.findById(id));
-		return "toDeleteBuffet.html";
-	}
+//	@GetMapping("/admin/deleteBuffet/{id}")
+//	public String toDeleteBuffet(@PathVariable("id") Long id, Model model) {
+//	    model.addAttribute("buffet", this.buffetService.searchById(id));
+//		return "toDeleteBuffet.html";
+//	}
 	
+	@Transactional
 	@GetMapping("/admin/deleteBuffet/{id}")
-	public String toDeleteBuffet(@PathVariable("id") Long id, Model model) {
+	public String deleteBuffet(@PathVariable("id") Long id, Model model) {
 		buffetService.deleteById(id);
 		model.addAttribute("buffet", buffetService.findAll());
 		return "buffet.html";
@@ -93,33 +97,35 @@ public class PortaleController {
 		return "chef.html";
 	}
 	
-	@GetMapping("/admin/deleteChef/{id}")
-	public String toDeleteChef(@PathVariable("id") Long id, Model model) {
-	    model.addAttribute("chef", this.chefService.findById(id));
-		return "toDeleteChef.html";
-	}
+//	@GetMapping("/admin/deleteChef/{id}")
+//	public String toDeleteChef(@PathVariable("id") Long id, Model model) {
+//	    model.addAttribute("chef", this.chefService.findById(id));
+//		return "toDeleteChef.html";
+//	}
 	
+	@Transactional
 	@GetMapping("/admin/deleteChef/{id}")
-	public String toDeleteBuffet(@PathVariable("id") Long id, Model model) {
+	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
 		model.addAttribute("chef", chefService.findAll());
 		return "chef.html";
 	}
 	
 	@PostMapping("/admin/piatto")
-	public String addPiatto(@PathVariable("id") Long id, Model model) {
-	    model.addAttribute("piatto", this.piattoService.findById(id));
+	public String addPiatto(@PathVariable("id") String id, Model model) {
+	    model.addAttribute("piatto", this.piattoService.searchById(id));
 		return "piatto.html";
 	}
 	
-	@GetMapping("/admin/deletePiatto/{id}")
-	public String toDeletePiatto(@PathVariable("id") Long id, Model model) {
-	    model.addAttribute("piatto", this.piattoService.findById(id));
-		return "toDeletePiatto.html";
-	}
+//	@GetMapping("/admin/deletePiatto/{id}")
+//	public String toDeletePiatto(@PathVariable("id") String id, Model model) {
+//	    model.addAttribute("piatto", this.piattoService.searchById(id));
+//		return "toDeletePiatto.html";
+//	}
 	
+	@Transactional
 	@GetMapping("/admin/deletePiatto/{id}")
-	public String toDeletePiatto(@PathVariable("id") Long id, Model model) {
+	public String deletePiatto(@PathVariable("id") String id, Model model) {
 		piattoService.deleteById(id);
 		model.addAttribute("piatto", piattoService.findAll());
 		return "piatto.html";
