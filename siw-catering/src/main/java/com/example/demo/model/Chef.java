@@ -6,6 +6,8 @@ import javax.persistence.*;
 public class Chef {
 	
 	@Id
+	private Long id;
+	
 	@Column(nullable = false)
 	private String nome;
 	

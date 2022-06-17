@@ -6,6 +6,9 @@ import javax.persistence.*;
 public class Ingrediente {
 	
 	@Id
+	private String codice;
+	
+	@Column(nullable = false)
 	private String nome;
 	
 	private String origine;
@@ -37,6 +40,14 @@ public class Ingrediente {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+
+	public String getCodice() {
+		return codice;
+	}
+
+	public void setCodice(String codice) {
+		this.codice = codice;
 	}
 
 }
