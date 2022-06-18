@@ -38,6 +38,6 @@ public class PiattoService {
 	}
 	
 	public boolean alreadyExists(Piatto piatto) {
-		return piattoRepository.existsByNomeAndDescrizioneAndIngredienti(piatto.getNome(), piatto.getDescrizione(), piatto.getIngredienti());
+		return piattoRepository.existsByNomeAndDescrizione(piatto.getNome(), piatto.getDescrizione());
 	}
 }
