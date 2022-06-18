@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Chef</title>
+</head>
+<body>
+    <div>
+        <h4>Elenco piatti:</h4>
+        <div>
+            <ul>
+                <li th:each=piatto:${piatti}><a href="piatto.html"
+                    th:href="@{'/piatto' + '/' + ${piatto.id}}"
+                    th:text="${piatto.nome}+ ' ' + ${piatto.cognome}">Paolo Rossi </a>
+                    <span> <a href="piatto.html" th:href="@{'toDeletePiatto' + '/' + ${Piatto.id}|" th:text=Cancella>cancella</a></span>
+                    </li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <a href="/">Home</a>
+    </footer>
+</body>
+</html>

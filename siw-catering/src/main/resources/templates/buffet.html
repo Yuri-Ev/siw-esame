@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Buffet</title>
+</head>
+<body>
+    <div>
+        <h4>Elenco buffet:</h4>
+        <div>
+            <ul>
+                <li th:each=buffet:${buffets}><a href="buffet.html"
+                    th:href="@{'/buffet' + '/' + ${buffet.id}}"
+                    th:text="${buffet.nome}+ ' ' + ${buffet.cognome}">Paolo Rossi </a>
+                    <span> <a href="buffet.html" th:href="@{'toDeleteBuffet' + '/' + ${Buffet.id}|" th:text=Cancella>cancella</a></span>
+                    </li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <a href="/">Home</a>
+    </footer>
+</body>
+</html>
