@@ -33,4 +33,12 @@ public class Piatto {
 		this.descrizione = descrizione;
 	}
 
+	public List<Ingrediente> getIngredienti() {
+		return ingredienti;
+	}
+
+	public void setIngredienti(List<Ingrediente> ingredienti) {
+		this.ingredienti = ingredienti;
+	}
+
 }
