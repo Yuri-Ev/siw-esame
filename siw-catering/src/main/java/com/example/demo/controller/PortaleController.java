@@ -20,7 +20,7 @@ public class PortaleController {
 //	@Autowired IngredientiService ingredienteService;
 	@Autowired PiattoService piattoService;
 	
-	@PostMapping("/home")
+	@GetMapping("/")
 	public String Home() {
 		return "home.html";
 	}
@@ -74,7 +74,7 @@ public class PortaleController {
 	@PostMapping("/admin/buffet")
 	public String addBuffet(@PathVariable("id") Long id, Model model) {
 	    model.addAttribute("buffet", this.buffetService.searchById(id));
-		return "buffet.html";
+		return "buffetForm.html";
 	}
 	
 //	@GetMapping("/admin/deleteBuffet/{id}")

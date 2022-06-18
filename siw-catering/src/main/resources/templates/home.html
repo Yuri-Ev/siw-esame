@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>User</title>
+</head>
+<body>
+    <div>
+        <h4>Operazioni user:</h4>
+        <div>
+            <a th:href="@{/buffet}">Elenco buffet</a> 
+            <div></div>
+            <a th:href="@{/chef}">Elenco chef</a>
+            <div></div>
+            <a th:href="@{/piatto}">Elenco piatti</a>
+        </div>
+    	<h4>Operazioni admin:</h4>
+    	<div> 
+    		<a th:href="@{/admin/buffet}">Aggiungi un buffet</a>
+    		<div></div>
+    		<a th:href="@{/aggiungiChef}">Aggiungi uno chef</a>
+    		<div></div>
+    		<a th:href="@{aggingiPiatto}">Aggiungi un piatto</a>
+    	</div>
+    
+    </div>
+    <footer>
+    	<br></br>
+    	<br></br>
+        <a href="/">Home</a>
+    </footer>
+</body>
+</html>
