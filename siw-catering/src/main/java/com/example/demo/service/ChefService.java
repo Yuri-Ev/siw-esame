@@ -30,11 +30,6 @@ public class ChefService {
 		chefRepository.delete(chef);
 	}
 	
-	@Transactional
-	public void deleteById(Long id) {
-		chefRepository.delete(findById(id));
-	}
-	
 	public List<Chef> findByNome(String nome){
 		return chefRepository.findByNome(nome);
 	}
@@ -46,4 +41,7 @@ public class ChefService {
 		return chef;
 	}
 	
+	public boolean alreadyExists(Chef chef) {
+		return chefRepository.existsByNomeAndCognomeAndNazionalitá(chef.getNome(), chef.getCognome(), chef.getNazionalitá());
+	}
 }
