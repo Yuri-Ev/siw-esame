@@ -30,6 +30,11 @@ public class ChefService {
 		chefRepository.delete(chef);
 	}
 	
+	@Transactional
+	public void deleteById(Long id) {
+		chefRepository.delete(findById(id));
+	}
+	
 	public List<Chef> findByNome(String nome){
 		return chefRepository.findByNome(nome);
 	}

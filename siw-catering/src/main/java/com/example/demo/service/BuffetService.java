@@ -25,13 +25,18 @@ public class BuffetService {
 		return buffetRepository.findByNome(nome);
 	}
 	
-	public Buffet searchBId(Long id){
+	public Buffet searchById(Long id){
 		return buffetRepository.findById(id).get();
 	}
 	
 	@Transactional
 	public void delete(Buffet buffet) {
 		buffetRepository.delete(buffet);
+	}
+	
+	@Transactional
+	public void deleteById(Long id) {
+		buffetRepository.delete(searchById(id));
 	}
 	
 	public List<Buffet> findAll(){

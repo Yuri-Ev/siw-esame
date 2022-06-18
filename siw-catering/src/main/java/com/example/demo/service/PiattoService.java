@@ -30,6 +30,11 @@ public class PiattoService {
 		piattoRepository.delete(piatto);
 	}
 	
+	@Transactional
+	public void deleteById(String nome) {
+		piattoRepository.delete(searchById(nome));
+	}
+	
 	public List<Piatto> findAll(){
 		List<Piatto> piatti = new ArrayList<>();
 		for (Piatto p : piattoRepository.findAll() )
