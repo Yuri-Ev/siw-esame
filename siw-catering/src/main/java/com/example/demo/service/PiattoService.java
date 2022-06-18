@@ -41,8 +41,4 @@ public class PiattoService {
 			piatti.add(p);
 		return piatti;
 	}
-	
-	public boolean alreadyExists(Piatto piatto) {
-		return piattoRepository.existsByNomeAndDescrizioneAndIngredienti(piatto.getNome(), piatto.getDescrizione(), piatto.getIngredienti());
-	}
 }
