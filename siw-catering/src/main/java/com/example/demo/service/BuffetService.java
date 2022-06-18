@@ -46,4 +46,8 @@ public class BuffetService {
 		return buffet;
 	}
 	
+	public boolean alreadyExists(Buffet buffet) {
+		return buffetRepository.existsByNomeAndDescrizioneAndPropositoreAndPiattiProposti(buffet.getNome(),buffet.getDescrizione(),buffet.getPropositore(),buffet.getPiattiProposti());
+	}
+	
 }

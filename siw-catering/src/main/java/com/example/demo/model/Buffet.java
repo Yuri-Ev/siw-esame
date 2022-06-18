@@ -48,4 +48,20 @@ public class Buffet {
 		this.descrizione = descrizione;
 	}
 
+	public Chef getPropositore() {
+		return propositore;
+	}
+
+	public void setPropositore(Chef propositore) {
+		this.propositore = propositore;
+	}
+
+	public List<Piatto> getPiattiProposti() {
+		return piattiProposti;
+	}
+
+	public void setPiattiProposti(List<Piatto> piattiProposti) {
+		this.piattiProposti = piattiProposti;
+	}
+
 }
