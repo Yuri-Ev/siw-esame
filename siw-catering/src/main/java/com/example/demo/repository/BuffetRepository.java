@@ -10,4 +10,5 @@ public interface BuffetRepository extends CrudRepository<Buffet, Long>{
 
 	public List<Buffet> findByNome(String nome);
 	
+	public boolean existsByNomeAndDescrizione(String nome,String descrizione);
 }

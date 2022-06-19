@@ -7,5 +7,6 @@ import com.example.demo.model.Piatto;
 
 public interface PiattoRepository extends CrudRepository<Piatto, String>{
 	
+	public boolean existsByNomeAndDescrizione(String nome,String descrizione);
 
 }

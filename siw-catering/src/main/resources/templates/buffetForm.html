@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>buffetForm</title>
+</head>
+<body>
+
+	<h2>Inserisci i dati del buffet da inserire:</h2>
+	<br></br>
+	<form th:action="@{/buffet}" method="post" th:object="${buffet}">
+		<div>
+			Nome buffet: <input type="text" th:field="*{nome}">
+		</div>
+
+		<div>
+			Descrizione buffet: <input type="text" th:field="*{descrizione}">
+		</div>
+		
+		<div>
+		<button type="submit"> Conferma </button>
+		</div>
+		<footer>
+			<br></br>
+			<a href="/">Torna alla home</a>
+		</footer>
+	</form>
+</body>
+</html>
