@@ -5,17 +5,25 @@
 <title>buffetForm</title>
 </head>
 <body>
+
+	<h2>Inserisci i dati del buffet da inserire:</h2>
+	<br></br>
 	<form th:action="@{/buffet}" method="post" th:object="${buffet}">
 		<div>
-		Nome: <input type="text" th:field="*{nome}">
+			Nome buffet: <input type="text" th:field="*{nome}">
+		</div>
+
+		<div>
+			Descrizione buffet: <input type="text" th:field="*{descrizione}">
 		</div>
 		
 		<div>
-		Descrizione: <input type="text" th:field="*{descrizione}">
+		<button type="submit"> Conferma </button>
 		</div>
-	<footer>
-		<a href="/">Home</a>
-	</footer>
+		<footer>
+			<br></br>
+			<a href="/">Torna alla home</a>
+		</footer>
 	</form>
 </body>
 </html>

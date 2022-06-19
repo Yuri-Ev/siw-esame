@@ -1,14 +1,20 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.model.Buffet;
 import com.example.demo.service.BuffetService;
 import com.example.demo.service.ChefService;
 import com.example.demo.service.PiattoService;
@@ -32,7 +38,9 @@ public class PortaleController {
 	}
 
 	@GetMapping("/buffet")
-	public String getBuffet() {
+	public String getBuffet(Model model) {
+		List<Buffet> buffets = buffetService.findAll();
+		model.addAttribute("buffets", buffets);
 		return "buffet.html";
 	}
 	
@@ -71,9 +79,17 @@ public class PortaleController {
 		return "admin.html";
 	}
 	
-	@PostMapping("/admin/buffet")
-	public String addBuffet(@PathVariable("id") Long id, Model model) {
-	    model.addAttribute("buffet", this.buffetService.searchById(id));
+	@PostMapping("/buffet")
+	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, Model model,BindingResult bindingResult) {
+	    buffetService.save(buffet);
+	    model.addAttribute("buffet",buffet);
+		return "buffet.html";
+	}
+	
+	
+	@GetMapping("/admin/buffet")
+	public String getDatiBuffet(Model model){
+		model.addAttribute("buffet", new Buffet());
 		return "buffetForm.html";
 	}
 	
