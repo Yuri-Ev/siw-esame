@@ -49,12 +49,12 @@ public class PortaleController {
 	
 
 	
-	
-	@GetMapping("/admin/buffet")
-	public String getDatiBuffet(Model model){
-		model.addAttribute("buffet", new Buffet());
-		return "buffetForm.html";
-	}
+//	
+//	@GetMapping("/admin/buffet")
+//	public String getDatiBuffet(Model model){
+//		model.addAttribute("buffet", new Buffet());
+//		return "buffetForm.html";
+//	}
 	
 //	@GetMapping("/admin/deleteBuffet/{id}")
 //	public String toDeleteBuffet(@PathVariable("id") Long id, Model model) {
