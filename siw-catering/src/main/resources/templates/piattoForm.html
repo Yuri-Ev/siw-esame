@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>piattoForm</title>
+</head>
+<body>
+
+	<h2>Inserisci i dati del piatto da inserire:</h2>
+	<br></br>
+	<form th:action="@{/piatto}" method="post" th:object="${piatto}">
+		<div>
+			Nome piatto: <input type="text" th:field="*{nome}">
+		</div>
+
+		<div>
+			Descrizione piatto: <input type="text" th:field="*{descrizione}">
+		</div>
+		
+		<div>
+		<button type="submit"> Conferma </button>
+		</div>
+		<footer>
+			<br></br>
+			<a href="/">Torna alla home</a>
+		</footer>
+	</form>
+</body>
+</html>

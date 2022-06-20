@@ -22,11 +22,11 @@ public class BuffetController {
 	@Autowired BuffetService buffetService;
 
 	
-	@GetMapping("/buffet")
-	public String getBuffet(Model model) {
+	@GetMapping("/buffets")
+	public String getListaBuffet(Model model) {
 		List<Buffet> buffets = buffetService.findAll();
 		model.addAttribute("buffets", buffets);
-		return "buffet.html";
+		return "buffets.html";
 	}
 	
 	@GetMapping("/buffet/{id}/piatti")
@@ -41,9 +41,15 @@ public class BuffetController {
 		return "buffet.html";
 	}
 	
+	@GetMapping("/buffet/{id}")
+	public String getBuffet(@PathVariable("id") Long id, Model model) {
+		Buffet buffet = buffetService.searchById(id);
+		model.addAttribute("buffet",buffet);
+		return "buffet.html";
+	}
 	
 	@GetMapping("/admin/buffet")
-	public String getDatiBuffet(Model model){
+	public String getFormBuffet(Model model){
 		model.addAttribute("buffet", new Buffet());
 		return "buffetForm.html";
 	}

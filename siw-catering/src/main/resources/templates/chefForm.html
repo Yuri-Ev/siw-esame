@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>chefForm</title>
+</head>
+<body>
+
+	<h2>Inserisci i dati dello chef da inserire:</h2>
+	<form th:action="@{/chef}" method="post" th:object="${chef}">
+		<div>
+			Nome Chef: <input type="text" th:field="*{nome}">
+		</div>
+
+		<div>
+			Cognome Chef: <input type="text" th:field="*{cognome}">
+		</div>
+
+		<div>
+			Nazionalitá Chef: <input type="text" th:field="*{nazionalitá}">
+		</div>
+
+		<div>
+			<button type="submit">Conferma</button>
+		</div>
+		<footer>
+			<br></br> <a href="/">Torna alla home</a>
+		</footer>
+	</form>
+</body>
+</html>
