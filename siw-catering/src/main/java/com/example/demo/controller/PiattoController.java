@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
-import javax.transaction.Transactional;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,11 @@ public class PiattoController {
 	
 	@Autowired PiattoService piattoService;
 
+	
 	@GetMapping("/piatto")
-	public String getPiatti () {
+	public String getPiatti (Model model) {
+		List<Piatto> piatti = piattoService.findAll();
+		model.addAttribute("piatti", piatti);
 		return "piatto.html";
 	}
 	
@@ -41,7 +45,6 @@ public class PiattoController {
 	}
 	
 	
-	@Transactional
 	@GetMapping("/admin/deletePiatto/{id}")
 	public String deletePiatto(@PathVariable("id") String id, Model model) {
 		piattoService.deleteById(id);

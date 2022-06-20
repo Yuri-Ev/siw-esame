@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Chef</title>
+<title>Piatto</title>
 </head>
 <body>
     <div>
@@ -10,9 +10,8 @@
         <div>
             <ul>
                 <li th:each=piatto:${piatti}><a href="piatto.html"
-                    th:href="@{'/piatto' + '/' + ${piatto.id}}"
-                    th:text="${piatto.nome}+ ' ' + ${piatto.cognome}">Paolo Rossi </a>
-                    <span> <a href="piatto.html" th:href="@{'toDeletePiatto' + '/' + ${Piatto.id}|" th:text=Cancella>cancella</a></span>
+                    th:href="@{'/piatto' + '/' + ${piatto.nome}}"
+                    th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Paolo Rossi </a>
                     </li>
             </ul>
         </div>

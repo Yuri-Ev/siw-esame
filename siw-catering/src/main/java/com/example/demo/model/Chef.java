@@ -7,7 +7,7 @@ public class Chef {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private long id;
 	
 	@Column(nullable = false)
 	private String nome;
@@ -41,6 +41,14 @@ public class Chef {
 
 	public void setNazionalitá(String nazionalitá) {
 		this.nazionalitá = nazionalitá;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

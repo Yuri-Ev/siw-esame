@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,8 @@ import com.example.demo.service.ChefService;
 public class ChefController {
 	@Autowired ChefService chefService;
 	
+	
+	
 	@GetMapping("/chef")
 	public String getChefs (Model model) {
 		List<Chef> chefs = chefService.findAll();
@@ -35,7 +36,7 @@ public class ChefController {
 		return "chef.html";
 	}
 	
-	@Transactional
+
 	@GetMapping("/admin/deleteChef/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
@@ -47,5 +48,12 @@ public class ChefController {
 	public String getFormChef(Model model){
 		model.addAttribute("chef", new Chef());
 		return "chefForm.html";
+	}
+	
+	@GetMapping("/chef/{id}")
+	public String getChef(@PathVariable("id") Long id, Model model) {
+		Chef chef = chefService.findById(id);
+		model.addAttribute("chef",chef);
+		return "chef.html";
 	}
 }
