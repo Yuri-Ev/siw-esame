@@ -1,36 +1,68 @@
 package com.example.demo.controller;
 
-import javax.transaction.Transactional;
+import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.model.Chef;
 import com.example.demo.service.ChefService;
+import com.example.demo.validator.ChefValidator;
 
 @Controller
 public class ChefController {
-	@Autowired ChefService chefService;
+	@Autowired 
+	ChefService chefService;
 	
-	@GetMapping("/chef")
-	public String getChef () {
-		return "chef.html";
+	@Autowired
+	ChefValidator validator;
+	
+	
+	
+	@GetMapping("/chefs")
+	public String getChefs (Model model) {
+		List<Chef> chefs = chefService.findAll();
+		model.addAttribute("chefs",chefs);
+		return "chefs.html";
 	}
 	
-	@PostMapping("/admin/chef")
-	public String addChef (@PathVariable("id") Long id, Model model) {
-	    model.addAttribute("chef", this.chefService.findById(id));
+	@PostMapping("/chef")
+	public String addChef(@Valid @ModelAttribute("chef") Chef chef, Model model,BindingResult bindingResult) {
+		validator.validate(chef, bindingResult);
+		if(!bindingResult.hasErrors()) {
+	    chefService.save(chef);
+	    model.addAttribute("chef",chef);
 		return "chef.html";
+		}
+		return "chefForm.html";
 	}
 	
-	@Transactional
+
 	@GetMapping("/admin/deleteChef/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
 		model.addAttribute("chef", chefService.findAll());
+		return "chef.html";
+	}
+	
+	@GetMapping("/admin/chef")
+	public String getFormChef(Model model){
+		model.addAttribute("chef", new Chef());
+		return "chefForm.html";
+	}
+	
+	@GetMapping("/chef/{id}")
+	public String getChef(@PathVariable("id") Long id, Model model) {
+		Chef chef = chefService.findById(id);
+		model.addAttribute("chef",chef);
 		return "chef.html";
 	}
 }

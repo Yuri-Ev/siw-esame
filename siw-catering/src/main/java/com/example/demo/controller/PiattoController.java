@@ -1,24 +1,37 @@
 package com.example.demo.controller;
 
-import javax.transaction.Transactional;
+import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.model.Piatto;
 import com.example.demo.service.PiattoService;
+import com.example.demo.validator.PiattoValidator;
 
 @Controller
 public class PiattoController {
 	
-	@Autowired PiattoService piattoService;
+	@Autowired 
+	PiattoService piattoService;
+	
+	@Autowired
+	PiattoValidator validator;
 
-	@GetMapping("/piatto")
-	public String getPiatti () {
-		return "piatto.html";
+	
+	@GetMapping("/piatti")
+	public String getPiatti (Model model) {
+		List<Piatto> piatti = piattoService.findAll();
+		model.addAttribute("piatti", piatti);
+		return "piatti.html";
 	}
 	
 	@GetMapping("/piatto/{nome}/ingredienti")
@@ -36,17 +49,35 @@ public class PiattoController {
 		return "ingredientecod.html";
 	}
 	
-	@PostMapping("/admin/piatto")
-	public String addPiatto(@PathVariable("id") String id, Model model) {
-	    model.addAttribute("piatto", this.piattoService.searchById(id));
-		return "piatto.html";
-	}
 	
-	@Transactional
 	@GetMapping("/admin/deletePiatto/{id}")
 	public String deletePiatto(@PathVariable("id") String id, Model model) {
 		piattoService.deleteById(id);
 		model.addAttribute("piatto", piattoService.findAll());
+		return "piatto.html";
+	}
+	
+	@GetMapping("/admin/piatto")
+	public String getFormPiatto(Model model){
+		model.addAttribute("piatto", new Piatto());
+		return "piattoForm.html";
+	}
+	
+	@PostMapping("/piatto")
+	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, Model model,BindingResult bindingResult) {
+		validator.validate(piatto, bindingResult);
+		if (!bindingResult.hasErrors()) {
+		piattoService.save(piatto);
+		model.addAttribute("piatto",piatto);
+		return "piatto.html";
+		}
+		return "piattoForm.html";
+	}
+	
+	
+	@GetMapping("/piatto/{nome}")
+	public String getPiatto(@PathVariable("nome") String nome,Model model){
+		model.addAttribute("piatto", piattoService.searchById(nome));
 		return "piatto.html";
 	}
 }

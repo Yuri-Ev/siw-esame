@@ -12,5 +12,5 @@ public interface ChefRepository extends CrudRepository<Chef, Long>{
 	
 	public List<Chef> findByNomeOrCognome(String nome,String cognome);
 	
-	public boolean existsByNomeAndCognomeAndNazionalitá(String nome,String cognome,String nazionalitá);
+	public boolean existsByNomeAndCognomeAndNazionalita(String nome,String cognome,String nazionalita);
 }

@@ -6,7 +6,8 @@ import javax.persistence.*;
 public class Chef {
 	
 	@Id
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	
 	@Column(nullable = false)
 	private String nome;
@@ -14,7 +15,7 @@ public class Chef {
 	@Column(nullable = false)
 	private String cognome;
 	
-	private String nazionalitá;
+	private String nazionalita;
 
 	
 	
@@ -34,12 +35,20 @@ public class Chef {
 		this.cognome = cognome;
 	}
 
-	public String getNazionalitá() {
-		return nazionalitá;
+	public long getId() {
+		return id;
 	}
 
-	public void setNazionalitá(String nazionalitá) {
-		this.nazionalitá = nazionalitá;
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNazionalita() {
+		return nazionalita;
+	}
+
+	public void setNazionalita(String nazionalita) {
+		this.nazionalita = nazionalita;
 	}
 
 }

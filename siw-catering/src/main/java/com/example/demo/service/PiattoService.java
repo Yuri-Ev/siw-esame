@@ -43,6 +43,6 @@ public class PiattoService {
 	}
 	
 	public boolean alreadyExists(Piatto piatto) {
-		return piattoRepository.existsByNomeAndDescrizione(piatto.getNome(), piatto.getDescrizione());
+		return piattoRepository.existsByNome(piatto.getNome());
 	}
 }
