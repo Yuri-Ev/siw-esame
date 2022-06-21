@@ -74,4 +74,10 @@ public class PiattoController {
 		return "piattoForm.html";
 	}
 	
+	
+	@GetMapping("/piatto/{nome}")
+	public String getPiatto(@PathVariable("nome") String nome,Model model){
+		model.addAttribute("piatto", piattoService.searchById(nome));
+		return "piatto.html";
+	}
 }
