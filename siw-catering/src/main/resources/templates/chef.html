@@ -2,22 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Chef</title>
+<title>Dati Chef</title>
 </head>
 <body>
-    <div>
-        <h4>Elenco chef:</h4>
-        <div>
-            <ul>
-                 <li th:each=chef:${chefs}><a href="chef.html"
-                    th:href="@{'/chef' + '/' + ${chef.id}}"
-                    th:text="${chef.nome}+ ' ' + ${chef.cognome}">Paolo Rossi </a>
-                    </li>
-            </ul>
-        </div>
-    </div>
-    <footer>
-        <a href="/">Home</a>
-    </footer>
+	<div>
+		<h4>Riepilogo dati chef</h4>
+		<div>
+			<span th:text="${chef.nome}">Paolo</span> 
+			<span th:text="${chef.cognome}">Rossi</span> 
+			<span th:text="${chef.nazionalita}">Rossi</span> 
+		</div>
+	</div>
+	<footer>
+		<a href="/">Home</a>
+	</footer>
 </body>
 </html>

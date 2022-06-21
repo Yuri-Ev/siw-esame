@@ -15,25 +15,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Chef;
 import com.example.demo.service.ChefService;
+import com.example.demo.validator.ChefValidator;
 
 @Controller
 public class ChefController {
-	@Autowired ChefService chefService;
+	@Autowired 
+	ChefService chefService;
+	
+	@Autowired
+	ChefValidator validator;
 	
 	
 	
-	@GetMapping("/chef")
+	@GetMapping("/chefs")
 	public String getChefs (Model model) {
 		List<Chef> chefs = chefService.findAll();
 		model.addAttribute("chefs",chefs);
-		return "chef.html";
+		return "chefs.html";
 	}
 	
 	@PostMapping("/chef")
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, Model model,BindingResult bindingResult) {
+		validator.validate(chef, bindingResult);
+		if(!bindingResult.hasErrors()) {
 	    chefService.save(chef);
 	    model.addAttribute("chef",chef);
 		return "chef.html";
+		}
+		return "chefForm.html";
 	}
 	
 

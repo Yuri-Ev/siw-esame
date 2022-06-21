@@ -15,18 +15,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Piatto;
 import com.example.demo.service.PiattoService;
+import com.example.demo.validator.PiattoValidator;
 
 @Controller
 public class PiattoController {
 	
-	@Autowired PiattoService piattoService;
+	@Autowired 
+	PiattoService piattoService;
+	
+	@Autowired
+	PiattoValidator validator;
 
 	
-	@GetMapping("/piatto")
+	@GetMapping("/piatti")
 	public String getPiatti (Model model) {
 		List<Piatto> piatti = piattoService.findAll();
 		model.addAttribute("piatti", piatti);
-		return "piatto.html";
+		return "piatti.html";
 	}
 	
 	@GetMapping("/piatto/{nome}/ingredienti")
@@ -60,9 +65,13 @@ public class PiattoController {
 	
 	@PostMapping("/piatto")
 	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, Model model,BindingResult bindingResult) {
+		validator.validate(piatto, bindingResult);
+		if (!bindingResult.hasErrors()) {
 		piattoService.save(piatto);
 		model.addAttribute("piatto",piatto);
 		return "piatto.html";
+		}
+		return "piattoForm.html";
 	}
 	
 }

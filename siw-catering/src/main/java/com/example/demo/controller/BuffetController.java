@@ -16,10 +16,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Buffet;
 import com.example.demo.service.BuffetService;
+import com.example.demo.validator.BuffetValidator;
 
 @Controller
 public class BuffetController {
-	@Autowired BuffetService buffetService;
+	@Autowired 
+	BuffetService buffetService;
+	
+	@Autowired
+	BuffetValidator validator;
 
 	
 	@GetMapping("/buffets")
@@ -36,13 +41,17 @@ public class BuffetController {
 	
 	@PostMapping("/buffet")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, Model model,BindingResult bindingResult) {
+		validator.validate(buffet, bindingResult);
+		if (!bindingResult.hasErrors()) {
 	    buffetService.save(buffet);
 	    model.addAttribute("buffet",buffet);
 		return "buffet.html";
+		}
+		return "buffetForm.html";
 	}
 	
 	@GetMapping("/buffet/{id}")
-	public String getBuffet(@PathVariable("id") Long id, Model model) {
+	public String getDatiBuffet(@PathVariable("id") Long id, Model model) {
 		Buffet buffet = buffetService.searchById(id);
 		model.addAttribute("buffet",buffet);
 		return "buffet.html";

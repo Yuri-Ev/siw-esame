@@ -15,7 +15,7 @@ public class Chef {
 	@Column(nullable = false)
 	private String cognome;
 	
-	private String nazionalitá;
+	private String nazionalita;
 
 	
 	
@@ -35,20 +35,20 @@ public class Chef {
 		this.cognome = cognome;
 	}
 
-	public String getNazionalitá() {
-		return nazionalitá;
-	}
-
-	public void setNazionalitá(String nazionalitá) {
-		this.nazionalitá = nazionalitá;
-	}
-
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getNazionalita() {
+		return nazionalita;
+	}
+
+	public void setNazionalita(String nazionalita) {
+		this.nazionalita = nazionalita;
 	}
 
 }
