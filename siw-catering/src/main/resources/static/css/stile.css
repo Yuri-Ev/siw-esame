@@ -12,6 +12,7 @@
 			margin: 0 auto;
 			background-position:center;
 			background-size: contain;
+			background-image: url("CIBO3.webp");
 		}
 	
 		.menu {
@@ -79,6 +80,33 @@ footer {
   flex-grow: 1;
   background-color: blue;
       }
+
+      .flexc{
+            border-radius: 10px;
+  margin: 2px;
+        width 80%;
+#  height: 50px;
+  flex-grow: 1;
+ background-color: #afe7f6;
+      }
+
+      .flexb{
+            border-radius: 10px;
+  margin: 2px;
+        width 80%;
+#  height: 50px;
+  flex-grow: 1;
+ background-color: #f3dbbc;
+      }
+
+      .flexa{
+            border-radius: 10px;
+  margin: 2px;
+        width 80%;
+#  height: 50px;
+  flex-grow: 1;
+ background-color: #c3e288;
+      }
       
       .flex2{
         border-radius: 10px;
@@ -118,6 +146,6 @@ footer {
       }
       
       .c{
-        background-color:#afe7f6
+        background-color:#afe7f6;
       }
   
