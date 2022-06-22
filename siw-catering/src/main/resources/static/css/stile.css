@@ -1,0 +1,123 @@
+		.head1 {
+			font-size:40px;
+			color:#009900;
+			font-weight:bold;
+		}
+		.head2 {
+			font-size:17px;
+			margin-left:10px;
+			margin-bottom:15px;
+		}
+		body {
+			margin: 0 auto;
+			background-position:center;
+			background-size: contain;
+		}
+	
+		.menu {
+ 		    border-radius: 10px;
+			position: sticky;
+			top: 0;
+			background-color: #009900;
+			padding:10px 0px 10px 0px;
+			color:white;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.menu a {
+			float: left;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 20px;
+		}
+		.menu-log {
+			right: auto;
+			float: right;
+		}
+		.body_sec {
+			margin-left:20px;
+		}
+      
+footer {
+			width: 100%;
+			bottom: 0px;
+			background-color: #000;
+			color: #fff;
+			position: absolute;
+			padding-top:20px;
+			padding-bottom:20px;
+			text-align:center;
+			font-size:30px;
+			font-weight:bold;
+		}
+          
+.flex-item {
+  border-radius: 10px;
+  margin: 2px;
+  width: 80%;
+  height: 100px;
+  flex-grow: 1;
+  justify-content: center;
+  margin: 0 auto;
+}
+      #flex {
+  display: flex;
+  padding: 20px;
+  height: 400px;
+  #align-items: stretch;
+  #flex-direction: column;
+  #justify-content: space-around;
+}
+      
+      .flex1{
+            border-radius: 10px;
+  margin: 2px;
+        width 80%;
+#  height: 50px;
+  flex-grow: 1;
+  background-color: blue;
+      }
+      
+      .flex2{
+        border-radius: 10px;
+        margin: 2px;
+        width:20%;
+        #height: 50px;
+        #flex-grow: ;
+        
+      }
+      
+            .flex3{
+            border-radius: 10px;
+  margin: 2px;
+        width 100%;
+  height: 130px;
+  flex-grow: 1;
+              			text-align:center;
+              line-height:8;
+              
+      }
+      
+      #flexx {
+  display: flex;
+  padding: 20px;
+  height: 400px;
+  #align-items: stretch;
+  flex-direction: column;
+  #justify-content: space-around;
+}
+
+      .a{
+        background-color:#c3e288;
+      }
+      
+      .b{
+        background-color:#f3dbbc;
+      }
+      
+      .c{
+        background-color:#afe7f6
+      }
+  
