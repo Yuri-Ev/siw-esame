@@ -53,18 +53,22 @@
         flex-direction: column;
         width:80%;
         justify-content: center;
-        margin: 0 auto;        
-        background-color:#fdd935;
+        margin: 0 auto;
       }
       
       #flex {
         display: flex;
         padding: 30px;
         height: 100%;
+	  
       }
 
       .flex1{
         flex-grow: 1;
+	  background-color:#fdd935;
+	  border-radius: 50px;
+	  margin: 2px;
+	  text-align:center;      
       }
 
       .flexc{
@@ -93,6 +97,7 @@
       
       .flex2{
         width:20%;
+	  padding-top: 10px;
       }
       
             
@@ -105,20 +110,13 @@
       
 
       .a{
-        background-color:#c3e288;
-        border-radius:10em;
       }
       
       .b{
-        background-color:#f3dbbc;
+		
       }
       
       .c{
-         background-color:#afe7f6;
-      }
-      
-      .c:hover{
-        background-color:#fdd935;
-        color:black;
-      }
+	}
+
       
