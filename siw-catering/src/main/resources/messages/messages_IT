@@ -1,0 +1,8 @@
+NotBlank.Buffet.nome= Il nome è un campo obbligatorio
+NotBlank.Buffet.descrizione= La descrizione è un campo obbligatorio
+NotBlank.Chef.nome= Il nome è un campo obbligatorio
+NotBlank.Chef.cognome= Il cognome è un campo obbligatorio
+NotBlank.Piatto.nome= Il nome è un campo obbligatorio
+buffet.duplicato= Questo buffet esiste già
+chef.duplicato= Questo chef esiste già
+piatto.duplicato= Questo piatto esiste già
