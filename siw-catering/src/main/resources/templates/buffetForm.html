@@ -35,6 +35,16 @@
 		</div>
 		
 		<div>
+		
+		<ul>
+                <li th:each=piatto:${piatti}><a href="piatto.html"
+                    th:href="@{'/piatto' + '/' + ${piatto.nome}}"
+                    th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Paolo Rossi </a>
+                    </li>
+            </ul>
+		
+		</div>
+		<div>
 		<button type="submit"> Conferma </button>
 		</div>
 	</form>
