@@ -3,11 +3,13 @@ package com.example.demo.model;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Piatto {
 	
 	@Id
+	@NotBlank
 	private String nome;
 	
 	@Column(length = 100)

@@ -28,6 +28,7 @@
 	<form th:action="@{/piatto}" method="post" th:object="${piatto}">
 		<div>
 			Nome piatto: <input type="text" th:field="*{nome}">
+			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"> </span>
 		</div>
 
 		<div>
