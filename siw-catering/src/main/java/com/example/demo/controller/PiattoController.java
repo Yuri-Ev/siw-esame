@@ -64,7 +64,7 @@ public class PiattoController {
 	}
 	
 	@PostMapping("/piatto")
-	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, Model model,BindingResult bindingResult) {
+	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto,BindingResult bindingResult, Model model) {
 		validator.validate(piatto, bindingResult);
 		if (!bindingResult.hasErrors()) {
 		piattoService.save(piatto);

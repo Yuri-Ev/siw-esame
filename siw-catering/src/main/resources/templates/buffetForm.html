@@ -28,6 +28,7 @@
 	<form th:action="@{/buffet}" method="post" th:object="${buffet}">
 		<div>
 			Nome buffet: <input type="text" th:field="*{nome}">
+			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
 		</div>
 
 		<div>
