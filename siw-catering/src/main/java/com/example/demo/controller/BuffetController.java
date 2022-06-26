@@ -59,6 +59,7 @@ public class BuffetController {
 	public String getDatiBuffet(@PathVariable("id") Long id, Model model) {
 		Buffet buffet = buffetService.searchById(id);
 		model.addAttribute("buffet",buffet);
+		model.addAttribute("piattiBuffet",buffet.getPiattiProposti());
 		return "buffet.html";
 	}
 	

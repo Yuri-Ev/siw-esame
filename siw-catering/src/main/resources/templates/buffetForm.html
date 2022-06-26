@@ -36,16 +36,14 @@
 		</div>
 		
 		<div>
-		
-		<ul>
-                <li th:each=piatto:${piatti}><a href="piatto.html"
-                    th:href="@{'/piatto' + '/' + ${piatto.nome}}"
-                    th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Paolo Rossi </a>
-                    </li>
-            </ul>
+		</br>
+		<p> Seleziona i piatti presenti nel buffet </p>
+                <input th:each=piatto:${piatti} type="checkbox" 
+                    th:text="${piatto.nome} + ' '"  th:field="*{piattiProposti}" th:value="${piatto.nome}" >
 		
 		</div>
 		<div>
+		</br>
 		<button type="submit"> Conferma </button>
 		</div>
 	</form>
