@@ -15,6 +15,7 @@
 		background-position:center;
 		background-size: contain;
 		background-color:black;
+		#background-image:url("napkin.jpg");
 		font-family: Verdana;
 	  }
 	
@@ -78,7 +79,10 @@
 
       .flex1{
         #flex-grow: 1;
-	  background-color:#fdd935;
+	  #background-color:#fdd935;
+	  background-image:url("wnapkin.jpg");
+	  background-repeat:no-repeat;
+	  background-size: 100%;
 	  border-radius: 50px;
 	  margin: 30px;
 	  text-align:center;
