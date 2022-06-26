@@ -56,6 +56,7 @@ public class BuffetController {
 			model.addAttribute("buffet",buffet);
 			return "buffet.html";
 		}
+		model.addAttribute("buffet",buffet);
 		return "buffetForm.html";
 	}
 
@@ -63,7 +64,6 @@ public class BuffetController {
 	public String getDatiBuffet(@PathVariable("id") Long id, Model model) {
 		Buffet buffet = buffetService.searchById(id);
 		model.addAttribute("buffet",buffet);
-		model.addAttribute("piattiBuffet",buffet.getPiattiProposti());
 		return "buffet.html";
 	}
 
