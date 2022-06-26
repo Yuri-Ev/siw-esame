@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.demo.model.Piatto;
 
-public interface PiattoRepository extends CrudRepository<Piatto, String>{
+public interface PiattoRepository extends CrudRepository<Piatto, Long>{
 	
 	public boolean existsByNome(String nome);
 

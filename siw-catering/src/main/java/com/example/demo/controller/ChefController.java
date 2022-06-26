@@ -21,30 +21,30 @@ import com.example.demo.validator.ChefValidator;
 public class ChefController {
 	@Autowired 
 	ChefService chefService;
-	
+
 	@Autowired
 	ChefValidator validator;
-	
-	
-	
+
+
+
 	@GetMapping("/chefs")
 	public String getChefs (Model model) {
 		List<Chef> chefs = chefService.findAll();
 		model.addAttribute("chefs",chefs);
 		return "chefs.html";
 	}
-	
+
 	@PostMapping("/chef")
-	public String addChef(@Valid @ModelAttribute("chef") Chef chef, Model model,BindingResult bindingResult) {
+	public String addChef(@Valid @ModelAttribute("chef") Chef chef,BindingResult bindingResult, Model model) {
 		validator.validate(chef, bindingResult);
 		if(!bindingResult.hasErrors()) {
-	    chefService.save(chef);
-	    model.addAttribute("chef",chef);
-		return "chef.html";
+			chefService.save(chef);
+			model.addAttribute("chef",chef);
+			return "chef.html";
 		}
 		return "chefForm.html";
 	}
-	
+
 
 	@GetMapping("/admin/deleteChef/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
@@ -52,13 +52,13 @@ public class ChefController {
 		model.addAttribute("chef", chefService.findAll());
 		return "chef.html";
 	}
-	
+
 	@GetMapping("/admin/chef")
 	public String getFormChef(Model model){
 		model.addAttribute("chef", new Chef());
 		return "chefForm.html";
 	}
-	
+
 	@GetMapping("/chef/{id}")
 	public String getChef(@PathVariable("id") Long id, Model model) {
 		Chef chef = chefService.findById(id);

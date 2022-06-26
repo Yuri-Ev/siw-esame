@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Buffet;
+import com.example.demo.model.Piatto;
 import com.example.demo.service.BuffetService;
+import com.example.demo.service.PiattoService;
 import com.example.demo.validator.BuffetValidator;
 
 @Controller
@@ -25,6 +27,9 @@ public class BuffetController {
 	
 	@Autowired
 	BuffetValidator validator;
+	
+	@Autowired
+	PiattoService piattoService;
 
 	
 	@GetMapping("/buffets")
@@ -40,7 +45,7 @@ public class BuffetController {
 	}
 	
 	@PostMapping("/buffet")
-	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, Model model,BindingResult bindingResult) {
+	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet,BindingResult bindingResult, Model model) {
 		validator.validate(buffet, bindingResult);
 		if (!bindingResult.hasErrors()) {
 	    buffetService.save(buffet);
@@ -54,12 +59,15 @@ public class BuffetController {
 	public String getDatiBuffet(@PathVariable("id") Long id, Model model) {
 		Buffet buffet = buffetService.searchById(id);
 		model.addAttribute("buffet",buffet);
+		model.addAttribute("piattiBuffet",buffet.getPiattiProposti());
 		return "buffet.html";
 	}
 	
 	@GetMapping("/admin/buffet")
 	public String getFormBuffet(Model model){
 		model.addAttribute("buffet", new Buffet());
+		List<Piatto> piatti = piattoService.findAll();
+		model.addAttribute("piatti",piatti);
 		return "buffetForm.html";
 	}
 	

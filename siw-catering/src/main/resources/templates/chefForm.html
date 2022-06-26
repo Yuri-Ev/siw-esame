@@ -3,29 +3,80 @@
 <head>
 <meta charset="UTF-8" />
 <title>chefForm</title>
+<link rel="stylesheet" type="text/css" href="/css/stile.css" />
 </head>
 <body>
 
-	<h2>Inserisci i dati dello chef da inserire:</h2>
-	<form th:action="@{/chef}" method="post" th:object="${chef}">
-		<div>
-			Nome Chef: <input type="text" th:field="*{nome}">
-		</div>
+	<div class="flex-item">
+		<!-- Menu Navigation Bar -->
+		<nav class="menu">
+			<a>Nome</a>
+			<div class="menu-log">
+				<a href="#login">LOGIN</a>
+			</div>
+		</nav>
 
-		<div>
-			Cognome Chef: <input type="text" th:field="*{cognome}">
-		</div>
+		<!-- Body section -->
+		<div id="flex">
+			<div class="flexa">
+				<main class="body_sec">
+					<section id="Content">
+							<h2>Inserisci i dati dello chef da inserire:</h2>
+							<form th:action="@{/chef}" method="post" th:object="${chef}">
+								<div th:if="${#fields.hasGlobalErrors()}">
+									 
+									<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+								</div>
+								<div>
+									Nome Chef: <input type="text" th:field="*{nome}">
+									<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+								</div>
 
-		<div>
-			Nazionalità Chef: <input type="text" th:field="*{nazionalita}">
-		</div>
+								<div>
+									Cognome Chef: <input type="text" th:field="*{cognome}">
+									<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+								</div>
 
-		<div>
-			<button type="submit">Conferma</button>
+								<div>
+									Nazionalità Chef: <input type="text" th:field="*{nazionalita}">
+								</div>
+
+								<div>
+									<button type="submit">Conferma</button>
+								</div>
+							</form>
+					</section>
+				</main>
+			</div>
+			<div class="flex2">
+				<div class="flexx">
+					<div class="flex3">
+						<div class="c">
+							<a href="#buffet">BUFFET</a></br>
+						</div>
+					</div>
+					<div class="flex3">
+						<div class="b">
+							<a href="#piatti">PIATTI</a></br>
+						</div>
+					</div>
+					<div class="flex3">
+						<div class="a">
+							<a href="#notification">CHEF</a></br>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<footer>
-			<br></br> <a href="/">Torna alla home</a>
-		</footer>
+	</div>
+
+	<!-- Footer Section -->
+	<footer>
+		<a href="/">Torna alla home</a>
+	</footer>
+
+
+
 	</form>
 </body>
 </html>

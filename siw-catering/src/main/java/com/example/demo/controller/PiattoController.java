@@ -51,7 +51,7 @@ public class PiattoController {
 	
 	
 	@GetMapping("/admin/deletePiatto/{id}")
-	public String deletePiatto(@PathVariable("id") String id, Model model) {
+	public String deletePiatto(@PathVariable("id") Long id, Model model) {
 		piattoService.deleteById(id);
 		model.addAttribute("piatto", piattoService.findAll());
 		return "piatto.html";
@@ -64,7 +64,7 @@ public class PiattoController {
 	}
 	
 	@PostMapping("/piatto")
-	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, Model model,BindingResult bindingResult) {
+	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto,BindingResult bindingResult, Model model) {
 		validator.validate(piatto, bindingResult);
 		if (!bindingResult.hasErrors()) {
 		piattoService.save(piatto);
@@ -75,9 +75,9 @@ public class PiattoController {
 	}
 	
 	
-	@GetMapping("/piatto/{nome}")
-	public String getPiatto(@PathVariable("nome") String nome,Model model){
-		model.addAttribute("piatto", piattoService.searchById(nome));
+	@GetMapping("/piatto/{id}")
+	public String getPiatto(@PathVariable("id") Long id,Model model){
+		model.addAttribute("piatto", piattoService.searchById(id));
 		return "piatto.html";
 	}
 }

@@ -2,10 +2,26 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>User</title>
+<title>Home</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
 </head>
 <body>
-    <div>
+
+    <div class="flex-item1">
+	<!-- Menu Navigation Bar -->
+      <nav class="menu">
+        <a>Nome</a>
+		<div class="menu-log">
+		<a href="#login">LOGIN</a>
+		</div>
+	  </nav>
+	
+	<!-- Body section -->
+      <div id="flex">
+      <div class="flex1">
+		 <h3>
+
+		    <div>
         <h4>Operazioni user:</h4>
         <div>
             <a th:href="@{/buffets}">Elenco buffet</a> 
@@ -24,10 +40,31 @@
     	</div>
     
     </div>
-    <footer>
-    	<br></br>
-    	<br></br>
-        <a href="/">Home</a>
-    </footer>
+
+</h3>
+      </div>  
+      <div class="flex2">
+          <div class="flex3">
+          <div class="c">
+           <a href="#buffet"><img border=”0” style="width:100%; max-width:400px" src="/css/CIBO3.webp" onmouseover="this.src='/css/Buffet.jpg';" onmouseout="this.src='/css/CIBO3.webp';"/>
+          </div>
+          </div>
+          <div class="flex3">
+          <div class="b">
+           <a href="#buffet"><img border=”0” style="width:100%; max-width:400px" src="/css/CIBO3.webp" onmouseover="this.src='/css/Piatti.jpg';" onmouseout="this.src='/css/CIBO3.webp';"/>
+        </div>
+        </div>
+          <div class="flex3">
+          <div class="a">
+		<a href="#buffet"><img border=”0” style="width:100%; max-width:400px" src="/css/CIBO3.webp" onmouseover="this.src='/css/Chef.jpg';" onmouseout="this.src='/css/CIBO3.webp';"/>
+        </div>
+        </div>
+      </div>
+     </div>
+     </div>
+      
+	<!-- Footer Section -->
+    <footer>Contatti</footer>  
+
 </body>
 </html>

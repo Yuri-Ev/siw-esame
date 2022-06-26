@@ -3,8 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <title>Dati Piatto</title>
+<link rel="stylesheet" type="text/css" href="/css/stile.css"/>
 </head>
 <body>
+
+    <div class="flex-item">
+	<!-- Menu Navigation Bar -->
+      <nav class="menu">
+        <a>Nome</a>
+		<div class="menu-log">
+		<a href="#login">LOGIN</a>
+		</div>
+	  </nav>
+	
+	<!-- Body section -->
+      <div id="flex">
+      <div class="flexb">
+         <main class = "body_sec">
+	     <section id="Content">
+		 <h3>
 	<div>
 		<h4>Riepilogo dati piatto</h4>
 		<div>
@@ -12,8 +29,39 @@
 			<span th:text="${piatto.descrizione}">Rossi</span> 
 		</div>
 	</div>
+	
+		</h3>
+		</section>
+	  </main>        
+      </div>  
+      <div class="flex2">
+        <div class="flexx">
+          <div class="flex3">
+          <div class="c">
+        <a href="#buffet">BUFFET</a></br>
+          </div>
+          </div>
+          <div class="flex3">
+          <div class="b">
+		<a href="#piatti">PIATTI</a></br>
+        </div>
+        </div>
+          <div class="flex3">
+          <div class="a">
+		<a href="#notification">CHEF</a></br>
+        </div>
+        </div>
+      </div>
+     </div>
+     </div>
+     </div>
+      
+	<!-- Footer Section -->
 	<footer>
 		<a href="/">Home</a>
-	</footer>
+	</footer>  
+
+
+
 </body>
 </html>

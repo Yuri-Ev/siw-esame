@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/css/stile.css"/>
 <meta charset="UTF-8" />
 <title>buffetForm</title>
 </head>
 <body>
-
-	<h2>Inserisci i dati del buffet da inserire:</h2>
+	
+	    <div class="flex-item">
+	<!-- Menu Navigation Bar -->
+      <nav class="menu">
+        <a>Nome</a>
+		<div class="menu-log">
+		<a href="#login">LOGIN</a>
+		</div>
+	  </nav>
+	
+	<!-- Body section -->
+      <div id="flex">
+      <div class="flexc">
+         <main class = "body_sec">
+	     <section id="Content">
+		 <h3>
+		 
+		 	<h2>Inserisci i dati del buffet da inserire:</h2>
 	<br></br>
 	<form th:action="@{/buffet}" method="post" th:object="${buffet}">
 		<div>
 			Nome buffet: <input type="text" th:field="*{nome}">
+			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
 		</div>
 
 		<div>
@@ -18,12 +36,50 @@
 		</div>
 		
 		<div>
+		</br>
+		<p> Seleziona i piatti presenti nel buffet </p>
+                <input th:each=piatto:${piatti} type="checkbox" 
+                    th:text="${piatto.nome} + ' '"  th:field="*{piattiProposti}" th:value="${piatto.id}" >
+		
+		</div>
+		<div>
+		</br>
 		<button type="submit"> Conferma </button>
 		</div>
-		<footer>
-			<br></br>
-			<a href="/">Torna alla home</a>
-		</footer>
 	</form>
+		 
+		 </h3>
+		</section>
+	  </main>        
+      </div>
+      <div class="flex2">
+        <div class="flexx">
+          <div class="flex3">
+          <div class="c">
+        <a href="#buffet">BUFFET</a></br>
+          </div>
+          </div>
+          <div class="flex3">
+          <div class="b">
+		<a href="#piatti">PIATTI</a></br>
+        </div>
+        </div>
+          <div class="flex3">
+          <div class="a">
+		<a href="#notification">CHEF</a></br>
+        </div>
+        </div>
+      </div>
+     </div>
+     </div>
+     </div>
+      
+	<!-- Footer Section -->
+    <footer>
+			<a href="/">Torna alla home</a>
+	</footer>
+	
+	
+
 </body>
 </html>
