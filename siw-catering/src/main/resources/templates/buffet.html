@@ -21,26 +21,30 @@
 			<div class="flexc">
 				<main class="body_sec">
 					<section id="Content">
-						<h3>
 
+						<div>
+							<h3>Riepilogo dati buffet</h3>
 							<div>
-								<h4>Riepilogo dati buffet</h4>
-								<div>
-									<span th:text="${buffet.nome}">Paolo</span> <span
-										th:text="${buffet.descrizione}">Rossi</span>
-								</div>
-
-								<div>
-									<ul>
-										<li th:each=piatto:${piattiBuffet}><a href="piatto.html"
-											th:href="@{'/piatto' + '/' + ${piatto.id}}"
-											th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Paolo
-												Rossi </a></li>
-									</ul>
-								</div>
+								<span th:text="${buffet.nome}">Paolo</span> 
+								<span th:text="${buffet.descrizione}">Rossi</span>
+							</div>
+							<div>
+								<h3>Buffet proposto dallo chef:</h3>
+								<a
+									th:text="${buffet.propositore.nome} + ' ' + ${buffet.propositore.cognome}"
+									th:href="@{'/chef' + '/' + ${buffet.propositore.id}}"> </a>
 							</div>
 
-						</h3>
+							<div>
+								<p>Piatti:</p>
+								<ul>
+									<li th:each=piatto:${piattiBuffet}><a href="piatto.html"
+										th:href="@{'/piatto' + '/' + ${piatto.id}}"
+										th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Paolo
+											Rossi </a></li>
+								</ul>
+							</div>
+						</div>
 					</section>
 				</main>
 			</div>
