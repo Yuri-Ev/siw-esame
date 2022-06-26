@@ -33,7 +33,7 @@
 								<div>
 									<ul>
 										<li th:each=piatto:${piattiBuffet}><a href="piatto.html"
-											th:href="@{'/piatto' + '/' + ${piatto.nome}}"
+											th:href="@{'/piatto' + '/' + ${piatto.id}}"
 											th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Paolo
 												Rossi </a></li>
 									</ul>
