@@ -39,7 +39,7 @@
 		</br>
 		<p> Seleziona i piatti presenti nel buffet </p>
                 <input th:each=piatto:${piatti} type="checkbox" 
-                    th:text="${piatto.nome} + ' '"  th:field="*{piattiProposti}" th:value="${piatto.nome}" >
+                    th:text="${piatto.nome} + ' '"  th:field="*{piattiProposti}" th:value="${piatto.id}" >
 		
 		</div>
 		<div>

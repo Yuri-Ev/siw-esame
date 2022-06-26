@@ -21,8 +21,8 @@ public class PiattoService {
 		return piattoRepository.save(piatto);
 	}
 	
-	public Piatto searchById(String nome){
-		return piattoRepository.findById(nome).get();
+	public Piatto searchById(Long id){
+		return piattoRepository.findById(id).get();
 	}
 	
 	@Transactional
@@ -31,8 +31,8 @@ public class PiattoService {
 	}
 	
 	@Transactional
-	public void deleteById(String nome) {
-		piattoRepository.delete(searchById(nome));
+	public void deleteById(Long id) {
+		piattoRepository.delete(searchById(id));
 	}
 	
 	public List<Piatto> findAll(){
