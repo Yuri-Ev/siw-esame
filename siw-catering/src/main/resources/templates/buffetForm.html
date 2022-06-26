@@ -49,6 +49,19 @@
 								</div>
 								<div>
 									</br>
+
+									<div>
+										<p>Seleziona lo Chef che ha proposto il buffet</p>
+										<fieldset>
+											<legend>Chef registrati</legend>
+											<select th:field="*{propositore}">
+												<option th:each=chef:${chefs} th:value="${chef.id}"
+													th:text="${chef.nome} + '  ' + ${chef.cognome}">Chef
+												</option>
+											</select>
+										</fieldset>
+									</div>
+
 									<button type="submit">Conferma</button>
 								</div>
 							</form>

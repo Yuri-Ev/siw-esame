@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Buffet;
+import com.example.demo.model.Chef;
 import com.example.demo.model.Piatto;
 import com.example.demo.service.BuffetService;
+import com.example.demo.service.ChefService;
 import com.example.demo.service.PiattoService;
 import com.example.demo.validator.BuffetValidator;
 
@@ -31,6 +33,8 @@ public class BuffetController {
 	@Autowired
 	PiattoService piattoService;
 
+	@Autowired
+	ChefService chefService;
 	
 	@GetMapping("/buffets")
 	public String getListaBuffet(Model model) {
@@ -68,6 +72,8 @@ public class BuffetController {
 		model.addAttribute("buffet", new Buffet());
 		List<Piatto> piatti = piattoService.findAll();
 		model.addAttribute("piatti",piatti);
+		List<Chef> chefs = chefService.findAll();
+		model.addAttribute("chefs",chefs);
 		return "buffetForm.html";
 	}
 	
