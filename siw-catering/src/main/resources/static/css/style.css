@@ -92,6 +92,17 @@
       
             
       .flex3{
-	 margin-bottom: 30px
-       }
+	 margin-bottom: 30px;
+	 text-align:center;
+       font-size:15px;
+       font-weight:bold;
+	 color: #fdd935;
+  	 line-height: 4;
+      }
+
+	.flex3 t{
+	 text-decoration: overline;
+	 text-decoration-color: #fdd935;
+	 font-size:20px;
+	}
       
