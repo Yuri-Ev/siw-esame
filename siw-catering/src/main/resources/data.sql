@@ -1,0 +1,1 @@
+INSERT INTO ingrediente (descrizione, nome, origine) VALUES ('a','a','a')
