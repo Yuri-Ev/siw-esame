@@ -20,7 +20,7 @@
 	  }
 	
 	  .menu {
-	    padding:5px 0px 5px 0px;
+	    padding:10px 0px 5px 0px;
 		overflow: hidden;
 		background-color:black;
 	  }
@@ -28,7 +28,7 @@
       .menu a {
 	    float: left;
 		color: #fdd935;
-		padding: 5px 5px;
+		padding: 10px 5px;
 		text-decoration: none;
 		font-size: 30px;
 		font-family: "Brush Script MT", cursive;
