@@ -1,1 +1,1 @@
-INSERT INTO ingrediente (descrizione, nome, origine) VALUES ('a','a','a')
+INSERT INTO Ingrediente (id,descrizione, nome, origine) VALUES ('1','a','a','a')
