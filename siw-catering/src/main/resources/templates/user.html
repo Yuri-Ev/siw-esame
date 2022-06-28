@@ -17,7 +17,7 @@
       	<img src="/css/capg.png" width="70" height="70" align="left">
         <a>NOME</a>
 		<div class="menu-log">
-		<a href="#login">Login</a>
+		<a th:href="@{/}">Login</a>
 		</div>
 	  </nav>
 	  </div>
@@ -25,22 +25,22 @@
 	<!-- Body section -->
       <div id="flex">
       	<div class="flex1">
-           <a th:href="@{/buffets}"><img border=”0” style="width:100%; max-width:480px;border-radius: 10px" src="/css/CIBO3.webp" onmouseover="this.src='/css/Buffet.jpg';" onmouseout="this.src='/css/CIBO3.webp';"/>
+           <a th:href="@{/buffets}"><img border=”0” style="width:100%; max-width:450px;border-radius: 10px" src="/css/buffet1.png" onmouseover="this.src='/css/Buffet.jpg';" onmouseout="this.src='/css/buffet1.png';"/></a>
       	</div>
       
       	<div class="flex2">
       		<div class="flex3">
-				<a th:href="@{/piatti}"><img border=”0” style="width:100%; max-width:480px;border-radius: 10px" src="/css/PIATTO.jpg" onmouseover="this.src='/css/Piatti.jpg';" onmouseout="this.src='/css/PIATTO.jpg';"/>
+				<a th:href="@{/piatti}"><img border=”0” style="width:100%; max-width:450px;border-radius: 10px" src="/css/PIATTO.jpg" onmouseover="this.src='/css/Piatti.jpg';" onmouseout="this.src='/css/PIATTO.jpg';"/></a>
         	</div>
        		<div class="flex3">
-				<a th:href="@{/chefs}"><img border=”0” style="width:100%; max-width:480px; border-radius: 10px" src="/css/TOQUE.jpg" onmouseover="this.src='/css/Chef.jpg';" onmouseout="this.src='/css/TOQUE.jpg';"/>
+				<a th:href="@{/chefs}"><img border=”0” style="width:100%; max-width:450px; border-radius: 10px" src="/css/TOQUE.jpg" onmouseover="this.src='/css/Chef.jpg';" onmouseout="this.src='/css/TOQUE.jpg';"/></a>
         	</div>
       	</div>
       </div>
     </div>
       
 	<!-- Footer Section -->
-    <footer><a th:href="@{/}">Home</a></footer> 
+    <footer><a th:href="@{/user}">Home</a></footer> 
  </div>
 </body>
 </html>
