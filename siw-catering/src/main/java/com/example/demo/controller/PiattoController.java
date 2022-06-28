@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Piatto;
+import com.example.demo.service.IngredienteService;
 import com.example.demo.service.PiattoService;
 import com.example.demo.validator.PiattoValidator;
 
@@ -22,6 +23,9 @@ public class PiattoController {
 	
 	@Autowired 
 	PiattoService piattoService;
+	
+	@Autowired
+	IngredienteService ingredienteService;
 	
 	@Autowired
 	PiattoValidator validator;
@@ -60,6 +64,7 @@ public class PiattoController {
 	@GetMapping("/admin/piatto")
 	public String getFormPiatto(Model model){
 		model.addAttribute("piatto", new Piatto());
+		model.addAttribute("listaIngredienti",ingredienteService.findAll());
 		return "piattoForm.html";
 	}
 	
