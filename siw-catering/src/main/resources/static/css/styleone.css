@@ -1,0 +1,144 @@
+      .head1 {
+        font-size:40px;
+		color:#009900;
+		font-weight:bold;
+	  }
+	
+      .head2 {
+        font-size:17px;
+		margin-left:10px;
+		margin-bottom:15px;
+	  }
+      
+	  body {
+		margin: 0 auto;
+		background-position:center;
+		background-size: contain;
+		background-color:black;
+		#background-image:url("napkin.jpg");
+		font-family: Verdana;
+	  }
+	
+	  .menu {
+	    padding:10px 0px 5px 0px;
+		overflow: hidden;
+		background-color:black;
+	  }
+	
+      .menu a {
+	    float: left;
+		color: #fdd935;
+		padding: 10px 5px;
+		text-decoration: none;
+		font-size: 30px;
+		font-family: "Brush Script MT", cursive;
+	  }
+	
+      .menu-log {
+        float: right;	
+      }
+      
+      footer {
+        width: 100%;
+        background-color: #000;
+        color: #fdd935;
+        position: absolute;
+        padding-top:5px;
+        padding-bottom:5px;
+        text-align:center;
+        font-size:30px;
+        font-weight:bold;
+  bottom: 0;
+  height: 2.5rem;            /* Footer height */	  	
+      }
+	
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+          
+      .flex-item1 {
+        align-items: center;      
+        flex-direction: column;
+        width:80%;
+        justify-content: center;
+        margin: 0 auto;
+      }
+      
+      #flex {
+	  flex-direction: column;
+        display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+
+      .flex1{
+	  border-radius: 10px;
+	  margin: 0px 0px 0px 0px;
+	  }
+   
+      .flex2{
+	  flex-direction: row;
+        display: flex;
+	  justify-content: center;
+       }
+
+      .flex3{
+	  border-radius: 10px;
+	  margin: 0px 0px 0px 0px;
+       }
+
+	#flex4{
+	  min-height: 150vh;
+	  display:flex;
+	  align-items: stretch;
+
+  	  border-radius: 10px;
+	  margin: 0px 30px 0px 30px;
+	  background-image:url("PIATTO.jpg");
+	  background-repeat:no-repeat;
+	  background-size: 100%;
+	  text-align:center;
+	}
+	
+	.flex5{
+	  flex-grow: 1;
+  	  border-radius: 10px;
+	  margin: 10px 30px 10px 30px;
+	  background-color:black;
+	  color:#fdd935;
+	  text-align:center;
+	}
+	
+	.flex6{
+	  flex-grow: 2;
+	}
+
+	a:link {
+	  color: white;
+	  text-decoration: none;
+	}
+
+/* visited link */
+	a:visited {
+	  color: white;
+	  text-decoration: none;
+	}
+
+/* mouse over link */
+	a:hover {
+	  color: white;
+	  text-decoration: none;
+	}
+
+/* selected link */
+	a:active {
+	  color: white;
+	  text-decoration: none;
+	}
+      
