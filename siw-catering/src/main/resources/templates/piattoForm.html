@@ -43,7 +43,7 @@
 								<div>
 									</br>
 									<p>Inserisci gli ingredienti presenti nel piatto</p>
-									<select class="select" th:field="*{ingredienti}">
+									<select class="select" th:field="*{ingredienti}" multiple>
 										<option th:each="ingrediente : ${listaIngredienti}"
 											th:value="${ingrediente.id}" th:text="${ingrediente.nome}">Ingrediente</option>
 									</select>

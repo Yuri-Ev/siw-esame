@@ -28,6 +28,11 @@
 			<span th:text="${piatto.nome}">Paolo</span> 
 			<span th:text="${piatto.descrizione}">Rossi</span> 
 		</div>
+		
+		<div>
+		<h4> Ingredienti presenti nel piatto:</h4>
+		<a th:each="ingrediente : ${piatto.ingredienti}" th:text="${ingrediente.nome} + ', '" href="ingrediente.htmla"></a>
+		</div>
 	</div>
 	
 		</h3>
