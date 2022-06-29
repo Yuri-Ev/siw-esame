@@ -56,7 +56,6 @@ public class BuffetController {
 			model.addAttribute("buffet",buffet);
 			return "buffet.html";
 		}
-		model.addAttribute("buffet",buffet);
 		return "buffetForm.html";
 	}
 
