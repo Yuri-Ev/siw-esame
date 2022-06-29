@@ -5,7 +5,6 @@
 <title>piattoForm</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 </head>
-<body>
 <div id="page-container">
    <div id="content-wrap">
      <!-- all other page content -->
@@ -14,10 +13,10 @@
     <div class="flex-item1">
 	<!-- Menu Navigation Bar -->
       <nav class="menu">
-      	<img src="/css/capg.png" width="70" height="70" align="left">
-        <a>NOME</a>
+      	<img src="/css/capg.png" width="50" height="40" align="left">
+        NOME
 		<div class="menu-log">
-		<a th:href="@{/}">Login</a>
+		<a th:href="@{/}"><b>Login</b></a>
 		</div>
 	  </nav>
 	  </div>
@@ -27,24 +26,22 @@
 
       
       <div class="flex1">
-		 <h3>
+		 <x>
+		 </br>
 
     <div>
-        <h4>Elenco buffet:</h4>
+        <y>Elenco buffet:</y>
         <div>
             <ul>
                 <li th:each=buffet:${buffets}><a href="buffet.html"
                     th:href="@{'/buffet' + '/' + ${buffet.id}}"
-                    th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}">Paolo Rossi </a>
+                    th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}"><l>Paolo Rossi</l> </a>
                     </li>
             </ul>
         </div>
     </div>
 
-
-		 <h3>
-
-	<h2>Inserisci i dati del piatto da inserire:</h2>
+	<y>Inserisci i dati del piatto da inserire:</y>
 	<br></br>
 	<form th:action="@{/piatto}" method="post" th:object="${piatto}">
 		<div>
@@ -59,7 +56,7 @@
 		<button type="submit"> Conferma </button>
 		</div>
 		</form>
-</h3>
+</x>
       </div>  
       <div class="flex2">
           <div class="flex3">

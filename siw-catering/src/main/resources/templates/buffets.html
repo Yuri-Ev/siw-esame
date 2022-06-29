@@ -14,10 +14,10 @@
     <div class="flex-item1">
 	<!-- Menu Navigation Bar -->
       <nav class="menu">
-      	<img src="/css/capg.png" width="70" height="70" align="left">
-        <a>NOME</a>
+      	<img src="/css/capg.png" width="50" height="40" align="left">
+        NOME
 		<div class="menu-log">
-		<a th:href="@{/}">Login</a>
+		<a th:href="@{/}"><b>Login</b></a>
 		</div>
 	  </nav>
 	  </div>
@@ -27,22 +27,23 @@
 
       
       <div class="flex1">
-		 <h3>
+		 <x>
 
     <div>
-        <h4>Elenco buffet:</h4>
+    	</br>
+        <y>Elenco buffet:</y>
         <div>
             <ul>
                 <li th:each=buffet:${buffets}><a href="buffet.html"
                     th:href="@{'/buffet' + '/' + ${buffet.id}}"
-                    th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}">Paolo Rossi </a>
+                    th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}"><l>Paolo Rossi</l></a>
                     </li>
             </ul>
         </div>
     </div>
 
 
-</h3>
+</x>
       </div>  
       <div class="flex2">
           <div class="flex3">

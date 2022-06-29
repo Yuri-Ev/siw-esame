@@ -5,7 +5,6 @@
 <title>Dati Piatto</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 </head>
-<body>
 <div id="page-container">
    <div id="content-wrap">
      <!-- all other page content -->
@@ -14,10 +13,10 @@
     <div class="flex-item1">
 	<!-- Menu Navigation Bar -->
       <nav class="menu">
-      	<img src="/css/capg.png" width="70" height="70" align="left">
-        <a>NOME</a>
+      	<img src="/css/capg.png" width="50" height="40" align="left">
+        NOME
 		<div class="menu-log">
-		<a th:href="@{/}">Login</a>
+		<a th:href="@{/}"><b>Login</b></a>
 		</div>
 	  </nav>
 	  </div>
@@ -27,16 +26,17 @@
 
       
       <div class="flex1">
-		 <h3>
+		 <x>
+		 </br>
 	<div>
-		<h4>Riepilogo dati piatto</h4>
+		<y>Riepilogo dati piatto</y>
 		<div>
-			<span th:text="${piatto.nome}">Paolo</span> 
-			<span th:text="${piatto.descrizione}">Rossi</span> 
+			<span th:text="${piatto.nome}"><l>Paolo</l></span> 
+			<span th:text="${piatto.descrizione}"><l>Rossi</l></span> 
 		</div>
 	</div>
 	
-		</h3>
+		</x>
       </div>  
       <div class="flex2">
           <div class="flex3">

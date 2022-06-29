@@ -14,20 +14,22 @@
     <div class="flex-item1">
 	<!-- Menu Navigation Bar -->
       <nav class="menu">
-      	<img src="/css/capg.png" width="70" height="70" align="left">
-        <a>NOME</a>
+      	<img src="/css/capg.png" width="50" height="40" align="left">
+        NOME
 		<div class="menu-log">
-		<a th:href="@{/}">Login</a>
+		<a th:href="@{/}"><b>Login</b></a>
 		</div>
 	  </nav>
 	  </div>
 	
 	<!-- Body section -->
       <div id="flex">
-	  <div class="flex1">
-		 <h3>
 
-	<h2>Inserisci i dati dello chef da inserire:</h2>
+      
+      <div class="flex1">
+		 <x>
+		</br>
+	<y>Inserisci i dati dello chef da inserire:</y>
 	<form th:action="@{/chef}" method="post" th:object="${chef}">
 		<div>
 			Nome Chef: <input type="text" th:field="*{nome}">
@@ -46,7 +48,7 @@
 		</div>
 		</form>
 
-</h3>
+</x>
       </div>  
       <div class="flex2">
           <div class="flex3">

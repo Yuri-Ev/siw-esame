@@ -5,7 +5,6 @@
 <title>Piatto</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 </head>
-<body>
 <div id="page-container">
    <div id="content-wrap">
      <!-- all other page content -->
@@ -14,10 +13,10 @@
     <div class="flex-item1">
 	<!-- Menu Navigation Bar -->
       <nav class="menu">
-      	<img src="/css/capg.png" width="70" height="70" align="left">
-        <a>NOME</a>
+      	<img src="/css/capg.png" width="50" height="40" align="left">
+        NOME
 		<div class="menu-log">
-		<a th:href="@{/}">Login</a>
+		<a th:href="@{/}"><b>Login</b></a>
 		</div>
 	  </nav>
 	  </div>
@@ -27,19 +26,20 @@
 
       
       <div class="flex1">
-		 <h3>
+		 <x>
+		 </br>
     <div>
-        <h4>Elenco piatti:</h4>
+        <y>Elenco piatti:</y>
         <div>
             <ul>
                 <li th:each=piatto:${piatti}><a href="piatto.html"
                     th:href="@{'/piatto' + '/' + ${piatto.nome}}"
-                    th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Paolo Rossi </a>
+                    th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}"><l>Paolo Rossi</l></a>
                     </li>
             </ul>
         </div>
     </div>
-</h3>
+</x>
       </div>  
       <div class="flex2">
           <div class="flex3">
