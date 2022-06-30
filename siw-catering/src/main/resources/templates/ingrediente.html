@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Dati Buffet</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+	<div id="page-container">
+		<div id="content-wrap">
+			<!-- all other page content -->
+
+
+			<div class="flex-item1">
+				<!-- Menu Navigation Bar -->
+				<nav class="menu">
+					<img src="/css/capg.png" width="50" height="40" align="left">
+					NOME
+					<div class="menu-log">
+						<a th:href="@{/}"><b>Login</b></a>
+					</div>
+				</nav>
+			</div>
+
+			<!-- Body section -->
+			<div id="flex">
+				<div class="flex1">
+					<x> </br>
+					<div>
+						<y>Riepilogo dati buffet</y>
+						<div>
+							<span th:text="${ingrediente.nome}"><l>Paolo</l></span> <span
+								th:text="${ingrediente.descrizione}"><l>Rossi</l></span>
+						</div>
+					</div>
+
+					</x>
+				</div>
+				<div class="flex3">
+					<div class="a">
+						<a th:href="@{/chefs}"><img border=â€0â€
+							style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
+							onmouseover="this.src='/css/Chef.jpg';"
+							onmouseout="this.src='/css/TOQUE.jpg';" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Footer Section -->
+	<footer>
+		<a th:href="@{/user}">Home</a>
+	</footer>
+	</div>
+
+</body>
+</html>

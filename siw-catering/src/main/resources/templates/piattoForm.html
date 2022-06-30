@@ -3,72 +3,85 @@
 <head>
 <meta charset="UTF-8" />
 <title>piattoForm</title>
-<link rel="stylesheet" type="text/css" href="/css/stile.css"/>
+<link rel="stylesheet" type="text/css" href="/css/stile.css" />
 </head>
 <body>
 
-    <div class="flex-item">
-	<!-- Menu Navigation Bar -->
-      <nav class="menu">
-        <a>Nome</a>
-		<div class="menu-log">
-		<a href="#login">LOGIN</a>
-		</div>
-	  </nav>
-	
-	<!-- Body section -->
-      <div id="flex">
-      <div class="flexb">
-         <main class = "body_sec">
-	     <section id="Content">
-		 <h3>
+	<div class="flex-item">
+		<!-- Menu Navigation Bar -->
+		<nav class="menu">
+			<a>Nome</a>
+			<div class="menu-log">
+				<a href="#login">LOGIN</a>
+			</div>
+		</nav>
 
-	<h2>Inserisci i dati del piatto da inserire:</h2>
-	<br></br>
-	<form th:action="@{/piatto}" method="post" th:object="${piatto}">
-		<div>
-			Nome piatto: <input type="text" th:field="*{nome}">
-			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"> </span>
-		</div>
+		<!-- Body section -->
+		<div id="flex">
+			<div class="flexb">
+				<main class="body_sec">
+					<section id="Content">
+						<h3>
 
-		<div>
-			Descrizione piatto: <input type="text" th:field="*{descrizione}">
-		</div>
-		
-		<div>
-		<button type="submit"> Conferma </button>
-		</div>
+							<h2>Inserisci i dati del piatto da inserire:</h2>
+							<br></br>
+							<form th:action="@{/piatto}" method="post" th:object="${piatto}">
+								<div th:if="${#fields.hasGlobalErrors()}">
+									<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+								</div>
+								<div>
+									Nome piatto: <input type="text" th:field="*{nome}"> <span
+										th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+									</span>
+								</div>
 
-</h3>
-		</section>
-	  </main>        
-      </div>  
-      <div class="flex2">
-        <div class="flexx">
-          <div class="flex3">
-          <div class="c">
-        <a href="#buffet">BUFFET</a></br>
-          </div>
-          </div>
-          <div class="flex3">
-          <div class="b">
-		<a href="#piatti">PIATTI</a></br>
-        </div>
-        </div>
-          <div class="flex3">
-          <div class="a">
-		<a href="#notification">CHEF</a></br>
-        </div>
-        </div>
-      </div>
-     </div>
-     </div>
-     </div>
-      
+								<div>
+									Descrizione piatto: <input type="text"
+										th:field="*{descrizione}">
+								</div>
+
+								<div>
+									</br>
+									<p>Inserisci gli ingredienti presenti nel piatto</p>
+									<select class="select" th:field="*{ingredienti}" multiple>
+										<option th:each="ingrediente : ${listaIngredienti}"
+											th:value="${ingrediente.id}" th:text="${ingrediente.nome}">Ingrediente</option>
+									</select>
+								</div>
+								</br>
+								<div>
+									<button type="submit">Conferma</button>
+								</div>
+						</h3>
+					</section>
+				</main>
+			</div>
+			<div class="flex2">
+				<div class="flexx">
+					<div class="flex3">
+						<div class="c">
+							<a href="#buffet">BUFFET</a></br>
+						</div>
+					</div>
+					<div class="flex3">
+						<div class="b">
+							<a href="#piatti">PIATTI</a></br>
+						</div>
+					</div>
+					<div class="flex3">
+						<div class="a">
+							<a href="#notification">CHEF</a></br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Footer Section -->
-		<footer>
-			<a href="/">Torna alla home</a>
-		</footer> 
+	<footer>
+		<a href="/">Torna alla home</a>
+	</footer>
 
 
 

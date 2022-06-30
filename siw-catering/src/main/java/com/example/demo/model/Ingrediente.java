@@ -6,7 +6,8 @@ import javax.persistence.*;
 public class Ingrediente {
 	
 	@Id
-	private String codice;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	
 	@Column(nullable = false)
 	private String nome;
@@ -42,12 +43,13 @@ public class Ingrediente {
 		this.descrizione = descrizione;
 	}
 
-	public String getCodice() {
-		return codice;
+	public Long getId() {
+		return id;
 	}
 
-	public void setCodice(String codice) {
-		this.codice = codice;
+	public void setId(Long id) {
+		this.id = id;
 	}
+
 
 }

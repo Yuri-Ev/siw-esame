@@ -21,30 +21,30 @@
 			<div class="flexa">
 				<main class="body_sec">
 					<section id="Content">
-							<h2>Inserisci i dati dello chef da inserire:</h2>
-							<form th:action="@{/chef}" method="post" th:object="${chef}">
-								<div th:if="${#fields.hasGlobalErrors()}">
-									 
-									<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-								</div>
-								<div>
-									Nome Chef: <input type="text" th:field="*{nome}">
-									<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
-								</div>
+						<h2>Inserisci i dati dello chef da inserire:</h2>
+						<form th:action="@{/chef}" method="post" th:object="${chef}">
+							<div th:if="${#fields.hasGlobalErrors()}">
+								<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+							</div>
+							<div>
+								Nome Chef: <input type="text" th:field="*{nome}"> <span
+									th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+							</div>
 
-								<div>
-									Cognome Chef: <input type="text" th:field="*{cognome}">
-									<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
-								</div>
+							<div>
+								Cognome Chef: <input type="text" th:field="*{cognome}">
+								<span th:if="${#fields.hasErrors('cognome')}"
+									th:errors="*{cognome}"></span>
+							</div>
 
-								<div>
-									Nazionalità Chef: <input type="text" th:field="*{nazionalita}">
-								</div>
+							<div>
+								Nazionalità Chef: <input type="text" th:field="*{nazionalita}">
+							</div>
 
-								<div>
-									<button type="submit">Conferma</button>
-								</div>
-							</form>
+							<div>
+								<button type="submit">Conferma</button>
+							</div>
+						</form>
 					</section>
 				</main>
 			</div>
