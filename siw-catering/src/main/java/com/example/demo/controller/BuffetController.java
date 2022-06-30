@@ -76,7 +76,7 @@ public class BuffetController {
 	@GetMapping("/admin/deleteBuffet/{id}")
 	public String deleteBuffet(@PathVariable("id") Long id, Model model) {
 		buffetService.deleteById(id);
-		model.addAttribute("buffet", buffetService.findAll());
-		return "buffet.html";
+		model.addAttribute("buffets", buffetService.findAll());
+		return "buffets.html";
 	}
 }
