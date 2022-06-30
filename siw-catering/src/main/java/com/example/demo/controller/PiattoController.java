@@ -38,21 +38,6 @@ public class PiattoController {
 		return "piatti.html";
 	}
 	
-	@GetMapping("/piatto/{nome}/ingredienti")
-	public String getIngredientiDiPiatto () {
-		return "piattoid.html";
-	}
-	
-	@GetMapping("/ingredienti")
-	public String getIngredienti() {
-		return "ingredienti.html";
-	}
-	
-	@GetMapping("/ingrediente/{cod}")
-	public String getIngrediente() {
-		return "ingredientecod.html";
-	}
-	
 	
 	@GetMapping("/admin/deletePiatto/{id}")
 	public String deletePiatto(@PathVariable("id") Long id, Model model) {

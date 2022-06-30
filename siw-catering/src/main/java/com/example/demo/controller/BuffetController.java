@@ -43,10 +43,6 @@ public class BuffetController {
 		return "buffets.html";
 	}
 
-	@GetMapping("/buffet/{id}/piatti")
-	public String getPiattiDiBuffet() {
-		return "buffetid.html";
-	}
 
 	@PostMapping("/buffet")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet,BindingResult bindingResult, Model model) {
