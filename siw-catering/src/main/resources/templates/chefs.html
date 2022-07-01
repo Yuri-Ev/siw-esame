@@ -35,7 +35,8 @@
 								<li th:each=chef:${chefs}><a href="chef.html"
 									th:href="@{'/chef' + '/' + ${chef.id}}"
 									th:text="${chef.nome}+ ' ' + ${chef.cognome}"><l>Paolo
-										Rossi</l></a> <span> <a href="chef.html"
+										Rossi</l></a>
+										<span> <a href="chef.html"
 										th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}"
 										th:text=Rimuovi>rimuovi</a></span></li>
 							</ul>

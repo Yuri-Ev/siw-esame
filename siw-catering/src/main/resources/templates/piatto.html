@@ -36,9 +36,9 @@
 
 						<div>
 							<h4>Ingredienti presenti nel piatto:</h4>
-							<a th:each="ingrediente : ${piatto.ingredienti}"
+							<l><a th:each="ingrediente : ${piatto.ingredienti}"
 								th:text="${ingrediente.nome} + ', '" href="ingrediente.html"
-								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"></a>
+								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"></a></l>
 						</div>
 					</div>
 
