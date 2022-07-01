@@ -18,7 +18,7 @@ public class Piatto {
 	@Column(length = 100)
 	private String descrizione;
 
-	@OneToMany
+	@ManyToMany
 	private List<Ingrediente> ingredienti;
 	
 	
