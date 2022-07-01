@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,60 +20,64 @@ import com.example.demo.validator.PiattoValidator;
 
 @Controller
 public class PiattoController {
-	
+
 	@Autowired 
 	PiattoService piattoService;
-	
+
 	@Autowired
 	IngredienteService ingredienteService;
-	
+
 	@Autowired
 	PiattoValidator validator;
 
-	
+
 	@GetMapping("/piatti")
-	public String getPiatti (Model model) {
+	public String getListaPiatti (Model model) {
 		List<Piatto> piatti = piattoService.findAll();
 		model.addAttribute("piatti", piatti);
 		return "piatti.html";
 	}
-	
-	
 
-	
+
+	@PostMapping("/piatto")
+	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto,BindingResult bindingResult, Model model) {
+		validator.validate(piatto, bindingResult);
+		if (!bindingResult.hasErrors()) {
+			piattoService.save(piatto);
+			model.addAttribute("piatto",piatto);
+			return "piatto.html";
+		}
+		return "piattoForm.html";
+	}
+
+
+	@GetMapping("/piatto/{id}")
+	public String getPiatto(@PathVariable("id") Long id,Model model){
+		model.addAttribute("piatto", piattoService.findById(id));
+		return "piatto.html";
+	}
+
+
 	@GetMapping("/admin/piatto")
 	public String getFormPiatto(Model model){
 		model.addAttribute("piatto", new Piatto());
 		model.addAttribute("listaIngredienti",ingredienteService.findAll());
 		return "piattoForm.html";
 	}
-	
-	@PostMapping("/piatto")
-	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto,BindingResult bindingResult, Model model) {
-		validator.validate(piatto, bindingResult);
-		if (!bindingResult.hasErrors()) {
-		piattoService.save(piatto);
-		model.addAttribute("piatto",piatto);
-		return "piatto.html";
-		}
-		return "piattoForm.html";
-	}
-	
-	
-	@GetMapping("/piatto/{id}")
-	public String getPiatto(@PathVariable("id") Long id,Model model){
-		model.addAttribute("piatto", piattoService.searchById(id));
-		return "piatto.html";
-	}
-	
-	
+
+
+
+
+
+
+
 	@GetMapping("/admin/toDeletePiatto/{id}")
 	public String toDeletePiatto(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("piatto",piattoService.searchById(id));
+		model.addAttribute("piatto",piattoService.findById(id));
 		return "riepilogoToDeletePiatto.html";
 	}
-	
-	
+
+
 
 	@GetMapping("/admin/deletePiatto/{id}")
 	public String deletePiatto(@PathVariable("id") Long id, Model model) {

@@ -21,11 +21,11 @@ public class BuffetService {
 		return buffetRepository.save(buffet);
 	}
 	
-	public List<Buffet> searchByNome(String nome){
+	public List<Buffet> findByNome(String nome){
 		return buffetRepository.findByNome(nome);
 	}
 	
-	public Buffet searchById(Long id){
+	public Buffet findById(Long id){
 		return buffetRepository.findById(id).get();
 	}
 	
@@ -36,7 +36,7 @@ public class BuffetService {
 	
 	@Transactional
 	public void deleteById(Long id) {
-		buffetRepository.delete(searchById(id));
+		buffetRepository.delete(findById(id));
 	}
 	
 	public List<Buffet> findAll(){
