@@ -28,7 +28,7 @@
 					<x> </br>
 
 					<div>
-						<h4>Riepilogo dati piatto</h4>
+						<h4>Dati piatto da eliminare</h4>
 						<div>
 							<span th:text="${piatto.nome}">Paolo</span> <span
 								th:text="${piatto.descrizione}">Rossi</span>
@@ -40,6 +40,7 @@
 								th:text="${ingrediente.nome} + ', '" href="ingrediente.html"
 								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"></a>
 						</div>
+						<a th:href="@{'/admin/deletePiatto' + '/'  + ${piatto.id}}">Elimina</a>
 					</div>
 
 					</x>

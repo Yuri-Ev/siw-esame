@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +40,7 @@ public class PiattoController {
 	}
 	
 	
-	@GetMapping("/admin/deletePiatto/{id}")
-	public String deletePiatto(@PathVariable("id") Long id, Model model) {
-		piattoService.deleteById(id);
-		model.addAttribute("piatto", piattoService.findAll());
-		return "piatto.html";
-	}
+
 	
 	@GetMapping("/admin/piatto")
 	public String getFormPiatto(Model model){
@@ -69,5 +65,21 @@ public class PiattoController {
 	public String getPiatto(@PathVariable("id") Long id,Model model){
 		model.addAttribute("piatto", piattoService.searchById(id));
 		return "piatto.html";
+	}
+	
+	
+	@GetMapping("/admin/toDeletePiatto/{id}")
+	public String toDeletePiatto(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("piatto",piattoService.searchById(id));
+		return "riepilogoToDeletePiatto.html";
+	}
+	
+	
+	@Transactional
+	@GetMapping("/admin/deletePiatto/{id}")
+	public String deletePiatto(@PathVariable("id") Long id, Model model) {
+		piattoService.deleteById(id);
+		model.addAttribute("piatti", piattoService.findAll());
+		return "piatti.html";
 	}
 }
