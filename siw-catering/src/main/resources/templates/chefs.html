@@ -2,72 +2,78 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Dati Buffet</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<title>Elenco Chef</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
-<div id="page-container">
-   <div id="content-wrap">
-     <!-- all other page content -->
-   
+	<div id="page-container">
+		<div id="content-wrap">
+			<!-- all other page content -->
 
-    <div class="flex-item1">
-	<!-- Menu Navigation Bar -->
-      <nav class="menu">
-      	<img src="/css/capg.png" width="50" height="40" align="left">
-        NOME
-		<div class="menu-log">
-		<a th:href="@{/}"><b>Login</b></a>
+
+			<div class="flex-item1">
+				<!-- Menu Navigation Bar -->
+				<nav class="menu">
+					<img src="/css/capg.png" width="50" height="40" align="left">
+					NOME
+					<div class="menu-log">
+						<a th:href="@{/}"><b>Login</b></a>
+					</div>
+				</nav>
+			</div>
+
+			<!-- Body section -->
+			<div id="flex">
+				<div class="flex1">
+					<x> </br>
+
+
+					<div>
+						<y>Elenco chef:</y>
+						<div>
+							<ul>
+								<li th:each=chef:${chefs}><a href="chef.html"
+									th:href="@{'/chef' + '/' + ${chef.id}}"
+									th:text="${chef.nome}+ ' ' + ${chef.cognome}"><l>Paolo
+										Rossi</l></a>
+										<span> <a href="chef.html"
+										th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}"
+										th:text=Rimuovi>rimuovi</a></span></li>
+							</ul>
+						</div>
+					</div>
+
+					</x>
+				</div>
+				<div class="flex2">
+					<div class="flex3">
+						<a th:href="@{/buffets}"><img border="0"
+							style="width: 100%; max-width: 400px" src="/css/buffet1.png"
+							onmouseover="this.src='/css/Buffet.jpg';"
+							onmouseout="this.src='/css/buffet1.png';" /></a>
+					</div>
+					<div class="flex3">
+						<a th:href="@{/piatti}"><img border="0"
+							style="width: 100%; max-width: 400px" src="/css/PIATTO.jpg"
+							onmouseover="this.src='/css/Piatti.jpg';"
+							onmouseout="this.src='/css/PIATTO.jpg';" /></a>
+					</div>
+					<div class="flex3">
+						<a th:href="@{/chefs}"><img border="0"
+							style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
+							onmouseover="this.src='/css/Chef.jpg';"
+							onmouseout="this.src='/css/TOQUE.jpg';" /></a>
+					</div>
+				</div>
+			</div>
+
 		</div>
-	  </nav>
-	  </div>
-	
-	<!-- Body section -->
-      <div id="flex">
-	  <div class="flex1">
-		 <x>
-		</br>
 
-
-    <div>
-        <h4>Elenco chef:</h4>
-        <div>
-            <ul>
-                 <li th:each=chef:${chefs}><a href="chef.html"
-                    th:href="@{'/chef' + '/' + ${chef.id}}"
-                    th:text="${chef.nome}+ ' ' + ${chef.cognome}">Paolo Rossi </a>
-                    <span> <a href="chef.html" th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}" th:text=Rimuovi>rimuovi</a></span>
-                    </li>
-            </ul>
-        </div>
-    </div>
-
-</x>
-      </div>  
-      <div class="flex2">
-          <div class="flex3">
-          <div class="c">
-           <a th:href="@{/buffets}"><img border=â€0â€ style="width:100%; max-width:400px" src="/css/buffet1.png" onmouseover="this.src='/css/Buffet.jpg';" onmouseout="this.src='/css/buffet1.png';"/></a>
-          </div>
-          </div>
-          <div class="flex3">
-          <div class="b">
-           <a th:href="@{/piatti}"><img border=â€0â€ style="width:100%; max-width:400px" src="/css/PIATTO.jpg" onmouseover="this.src='/css/Piatti.jpg';" onmouseout="this.src='/css/PIATTO.jpg';"/></a>
-        </div>
-        </div>
-          <div class="flex3">
-          <div class="a">
-		<a th:href="@{/chefs}"><img border=â€0â€ style="width:100%; max-width:400px" src="/css/TOQUE.jpg" onmouseover="this.src='/css/Chef.jpg';" onmouseout="this.src='/css/TOQUE.jpg';"/></a>
-        </div>
-        </div>
-      </div>
-     </div>
-      
-</div>
-      
-	<!-- Footer Section -->
-    <footer><a th:href="@{/user}">Home</a></footer> 
- </div>
+		<!-- Footer Section -->
+		<footer>
+			<a th:href="@{/user}">Home</a>
+		</footer>
+	</div>
 
 </body>
 </html>

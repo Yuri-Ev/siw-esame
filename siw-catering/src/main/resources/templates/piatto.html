@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Dati Buffet</title>
+<title>Dati Piatto</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -28,7 +28,7 @@
 					<x> </br>
 
 					<div>
-						<h4>Riepilogo dati piatto</h4>
+						<y>Riepilogo dati piatto</y>
 						<div>
 							<span th:text="${piatto.nome}">Paolo</span> <span
 								th:text="${piatto.descrizione}">Rossi</span>
@@ -36,9 +36,9 @@
 
 						<div>
 							<h4>Ingredienti presenti nel piatto:</h4>
-							<a th:each="ingrediente : ${piatto.ingredienti}"
+							<l><a th:each="ingrediente : ${piatto.ingredienti}"
 								th:text="${ingrediente.nome} + ', '" href="ingrediente.html"
-								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"></a>
+								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"></a></l>
 						</div>
 					</div>
 
@@ -46,28 +46,22 @@
 				</div>
 				<div class="flex2">
 					<div class="flex3">
-						<div class="c">
-							<a th:href="@{/buffets}"><img border=â€0â€
-								style="width: 100%; max-width: 400px" src="/css/buffet1.png"
-								onmouseover="this.src='/css/Buffet.jpg';"
-								onmouseout="this.src='/css/buffet1.png';" /></a>
-						</div>
+						<a th:href="@{/buffets}"><img border="0"
+							style="width: 100%; max-width: 400px" src="/css/buffet1.png"
+							onmouseover="this.src='/css/Buffet.jpg';"
+							onmouseout="this.src='/css/buffet1.png';" /></a>
 					</div>
 					<div class="flex3">
-						<div class="b">
-							<a th:href="@{/piatti}"><img border=â€0â€
-								style="width: 100%; max-width: 400px" src="/css/PIATTO.jpg"
-								onmouseover="this.src='/css/Piatti.jpg';"
-								onmouseout="this.src='/css/PIATTO.jpg';" /></a>
-						</div>
+						<a th:href="@{/piatti}"><img border="0"
+							style="width: 100%; max-width: 400px" src="/css/PIATTO.jpg"
+							onmouseover="this.src='/css/Piatti.jpg';"
+							onmouseout="this.src='/css/PIATTO.jpg';" /></a>
 					</div>
 					<div class="flex3">
-						<div class="a">
-							<a th:href="@{/chefs}"><img border=â€0â€
-								style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
-								onmouseover="this.src='/css/Chef.jpg';"
-								onmouseout="this.src='/css/TOQUE.jpg';" /></a>
-						</div>
+						<a th:href="@{/chefs}"><img border="0"
+							style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
+							onmouseover="this.src='/css/Chef.jpg';"
+							onmouseout="this.src='/css/TOQUE.jpg';" /></a>
 					</div>
 				</div>
 			</div>
