@@ -3,20 +3,55 @@
 <head>
 <meta charset="UTF-8" />
 <title>User</title>
+<link rel="stylesheet" type="text/css" href="/css/styleone.css" />
 </head>
 <body>
-    <div>
-        <h4>Operazioni</h4>
-        <div>
-            <a th:href="@{/buffet}">Elenco buffet</a> 
-            <div></div>
-            <a th:href="@{/chef}">Elenco chef</a>
-            <div></div>
-            <a th:href="@{/piatto}">Elenco piatti</a>
-        </div>
-    </div>
-    <footer>
-        <a href="/">Home</a>
-    </footer>
+	<div id="page-container">
+		<div id="content-wrap">
+			<!-- all other page content -->
+
+
+			<div class="flex-item1">
+				<!-- Menu Navigation Bar -->
+				<nav class="menu">
+					<img src="/css/capg.png" width="50" height="40" align="left">
+					<a>NOME</a>
+					<div class="menu-log">
+						<a th:href="@{/}">Login</a>
+					</div>
+				</nav>
+			</div>
+
+			<!-- Body section -->
+			<div id="flex">
+				<div class="flex1">
+					<a th:href="@{/buffets}"><img border="0"
+						style="width: 100%; max-width: 450px; border-radius: 10px"
+						src="/css/buffet1.png" onmouseover="this.src='/css/Buffet.jpg';"
+						onmouseout="this.src='/css/buffet1.png';" /></a>
+				</div>
+
+				<div class="flex2">
+					<div class="flex3">
+						<a th:href="@{/piatti}"><img border="0"
+							style="width: 100%; max-width: 450px; border-radius: 10px"
+							src="/css/PIATTO.jpg" onmouseover="this.src='/css/Piatti.jpg';"
+							onmouseout="this.src='/css/PIATTO.jpg';" /></a>
+					</div>
+					<div class="flex3">
+						<a th:href="@{/chefs}"><img border="0"
+							style="width: 100%; max-width: 450px; border-radius: 10px"
+							src="/css/TOQUE.jpg" onmouseover="this.src='/css/Chef.jpg';"
+							onmouseout="this.src='/css/TOQUE.jpg';" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer Section -->
+		<footer>
+			<a th:href="@{/user}">Home</a>
+		</footer>
+	</div>
 </body>
 </html>

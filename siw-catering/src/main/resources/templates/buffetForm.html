@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Dati Buffet</title>
+<title>Aggiungi Buffet</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -27,8 +27,7 @@
 				<div class="flex1">
 					<x> </br>
 
-					<h2>Inserisci i dati del buffet da inserire:</h2>
-					<br></br>
+					<y>Inserisci i dati del buffet da inserire:</y>
 					<form th:action="@{/buffet}" method="post" th:object="${buffet}">
 						<div th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
@@ -73,28 +72,22 @@
 				</div>
 				<div class="flex2">
 					<div class="flex3">
-						<div class="c">
-							<a th:href="@{/buffets}"><img border=â€0â€
-								style="width: 100%; max-width: 400px" src="/css/buffet1.png"
-								onmouseover="this.src='/css/Buffet.jpg';"
-								onmouseout="this.src='/css/buffet1.png';" /></a>
-						</div>
+						<a th:href="@{/buffets}"><img border=â€0â€
+							style="width: 100%; max-width: 400px" src="/css/buffet1.png"
+							onmouseover="this.src='/css/Buffet.jpg';"
+							onmouseout="this.src='/css/buffet1.png';" /></a>
 					</div>
 					<div class="flex3">
-						<div class="b">
-							<a th:href="@{/piatti}"><img border=â€0â€
-								style="width: 100%; max-width: 400px" src="/css/PIATTO.jpg"
-								onmouseover="this.src='/css/Piatti.jpg';"
-								onmouseout="this.src='/css/PIATTO.jpg';" /></a>
-						</div>
+						<a th:href="@{/piatti}"><img border=â€0â€
+							style="width: 100%; max-width: 400px" src="/css/PIATTO.jpg"
+							onmouseover="this.src='/css/Piatti.jpg';"
+							onmouseout="this.src='/css/PIATTO.jpg';" /></a>
 					</div>
 					<div class="flex3">
-						<div class="a">
-							<a th:href="@{/chefs}"><img border=â€0â€
-								style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
-								onmouseover="this.src='/css/Chef.jpg';"
-								onmouseout="this.src='/css/TOQUE.jpg';" /></a>
-						</div>
+						<a th:href="@{/chefs}"><img border=â€0â€
+							style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
+							onmouseover="this.src='/css/Chef.jpg';"
+							onmouseout="this.src='/css/TOQUE.jpg';" /></a>
 					</div>
 				</div>
 			</div>

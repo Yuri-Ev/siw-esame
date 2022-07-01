@@ -2,82 +2,85 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Dati Buffet</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<title>Aggiungi chef</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
-<div id="page-container">
-   <div id="content-wrap">
-     <!-- all other page content -->
-   
+	<div id="page-container">
+		<div id="content-wrap">
+			<!-- all other page content -->
 
-    <div class="flex-item1">
-	<!-- Menu Navigation Bar -->
-      <nav class="menu">
-      	<img src="/css/capg.png" width="50" height="40" align="left">
-        NOME
-		<div class="menu-log">
-		<a th:href="@{/}"><b>Login</b></a>
-		</div>
-	  </nav>
-	  </div>
-	
-	<!-- Body section -->
-      <div id="flex">
-	  <div class="flex1">
-		 <x>
-		</br>
 
-						<h2>Inserisci i dati dello chef da inserire:</h2>
-						<form th:action="@{/chef}" method="post" th:object="${chef}">
-							<div th:if="${#fields.hasGlobalErrors()}">
-								<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-							</div>
-							<div>
-								Nome Chef: <input type="text" th:field="*{nome}"> <span
-									th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
-							</div>
+			<div class="flex-item1">
+				<!-- Menu Navigation Bar -->
+				<nav class="menu">
+					<img src="/css/capg.png" width="50" height="40" align="left">
+					NOME
+					<div class="menu-log">
+						<a th:href="@{/}"><b>Login</b></a>
+					</div>
+				</nav>
+			</div>
 
-							<div>
-								Cognome Chef: <input type="text" th:field="*{cognome}">
-								<span th:if="${#fields.hasErrors('cognome')}"
-									th:errors="*{cognome}"></span>
-							</div>
+			<!-- Body section -->
+			<div id="flex">
+				<div class="flex1">
+					<x> </br>
 
-							<div>
-								Nazionalità Chef: <input type="text" th:field="*{nazionalita}">
-							</div>
+					<y>Inserisci i dati dello chef da inserire:</y>
+					<form th:action="@{/chef}" method="post" th:object="${chef}">
+						<div th:if="${#fields.hasGlobalErrors()}">
+							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+						</div>
+						<div>
+							Nome Chef: <input type="text" th:field="*{nome}"> <span
+								th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+						</div>
 
-							<div>
-								<button type="submit">Conferma</button>
-							</div>
-						</form>
+						<div>
+							Cognome Chef: <input type="text" th:field="*{cognome}"> <span
+								th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+						</div>
+
+						<div>
+							Nazionalità Chef: <input type="text" th:field="*{nazionalita}">
+						</div>
+
+						<div>
+							<button type="submit">Conferma</button>
+						</div>
+					</form>
 					</x>
-      </div>  
-      <div class="flex2">
-          <div class="flex3">
-          <div class="c">
-           <a th:href="@{/buffets}"><img border=â€0â€ style="width:100%; max-width:400px" src="/css/buffet1.png" onmouseover="this.src='/css/Buffet.jpg';" onmouseout="this.src='/css/buffet1.png';"/></a>
-          </div>
-          </div>
-          <div class="flex3">
-          <div class="b">
-           <a th:href="@{/piatti}"><img border=â€0â€ style="width:100%; max-width:400px" src="/css/PIATTO.jpg" onmouseover="this.src='/css/Piatti.jpg';" onmouseout="this.src='/css/PIATTO.jpg';"/></a>
-        </div>
-        </div>
-          <div class="flex3">
-          <div class="a">
-		<a th:href="@{/chefs}"><img border=â€0â€ style="width:100%; max-width:400px" src="/css/TOQUE.jpg" onmouseover="this.src='/css/Chef.jpg';" onmouseout="this.src='/css/TOQUE.jpg';"/></a>
-        </div>
-        </div>
-      </div>
-     </div>
-      
-</div>
-      
-	<!-- Footer Section -->
-    <footer><a th:href="@{/user}">Home</a></footer> 
- </div>
+				</div>
+				<div class="flex2">
+					<div class="flex3">
+						<a th:href="@{/buffets}"><img border=â€0â€
+							style="width: 100%; max-width: 400px" src="/css/buffet1.png"
+							onmouseover="this.src='/css/Buffet.jpg';"
+							onmouseout="this.src='/css/buffet1.png';" /></a>
+					</div>
+					<div class="flex3">
+						<a th:href="@{/piatti}"><img border=â€0â€
+							style="width: 100%; max-width: 400px" src="/css/PIATTO.jpg"
+							onmouseover="this.src='/css/Piatti.jpg';"
+							onmouseout="this.src='/css/PIATTO.jpg';" /></a>
+					</div>
+					<div class="flex3">
+						<a th:href="@{/chefs}"><img border=â€0â€
+							style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
+							onmouseover="this.src='/css/Chef.jpg';"
+							onmouseout="this.src='/css/TOQUE.jpg';" /></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Footer Section -->
+		<footer>
+			<a th:href="@{/user}">Home</a>
+		</footer>
+	</div>
 
 </body>
 </html>
