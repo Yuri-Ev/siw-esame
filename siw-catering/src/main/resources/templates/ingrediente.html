@@ -27,7 +27,7 @@
 				<div class="flex1">
 					<x> </br>
 					<div>
-						<y>Riepilogo dati buffet</y>
+						<y>Dati ingrediente</y>
 						<div>
 							<span th:text="${ingrediente.nome}"><l>Paolo</l></span> <span
 								th:text="${ingrediente.descrizione}"><l>Rossi</l></span>
@@ -36,16 +36,35 @@
 
 					</x>
 				</div>
-				<div class="flex3">
-					<div class="a">
-						<a th:href="@{/chefs}"><img border=â€0â€
-							style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
-							onmouseover="this.src='/css/Chef.jpg';"
-							onmouseout="this.src='/css/TOQUE.jpg';" /></a>
+				<div class="flex2">
+					<div class="flex3">
+						<div class="c">
+							<a th:href="@{/buffets}"><img border=â€0â€
+								style="width: 100%; max-width: 400px" src="/css/buffet1.png"
+								onmouseover="this.src='/css/Buffet.jpg';"
+								onmouseout="this.src='/css/buffet1.png';" /></a>
+						</div>
+					</div>
+					<div class="flex3">
+						<div class="b">
+							<a th:href="@{/piatti}"><img border=â€0â€
+								style="width: 100%; max-width: 400px" src="/css/PIATTO.jpg"
+								onmouseover="this.src='/css/Piatti.jpg';"
+								onmouseout="this.src='/css/PIATTO.jpg';" /></a>
+						</div>
+					</div>
+					<div class="flex3">
+						<div class="a">
+							<a th:href="@{/chefs}"><img border=â€0â€
+								style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
+								onmouseover="this.src='/css/Chef.jpg';"
+								onmouseout="this.src='/css/TOQUE.jpg';" /></a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
 	</div>
 
