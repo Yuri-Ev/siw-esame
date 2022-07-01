@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,12 +47,6 @@ public class ChefController {
 	}
 
 
-	@GetMapping("/admin/deleteChef/{id}")
-	public String deleteChef(@PathVariable("id") Long id, Model model) {
-		chefService.deleteById(id);
-		model.addAttribute("chef", chefService.findAll());
-		return "chef.html";
-	}
 
 	@GetMapping("/admin/chef")
 	public String getFormChef(Model model){
@@ -64,5 +59,21 @@ public class ChefController {
 		Chef chef = chefService.findById(id);
 		model.addAttribute("chef",chef);
 		return "chef.html";
+	}
+	
+	
+	@GetMapping("/admin/toDeleteChef/{id}")
+	public String toDeleteChef(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("chef",chefService.findById(id));
+		return "riepilogoToDeleteChef.html";
+	}
+	
+	
+	@Transactional
+	@GetMapping("/admin/deleteChef/{id}")
+	public String deleteChef(@PathVariable("id") Long id, Model model) {
+		chefService.deleteById(id);
+		model.addAttribute("chefs", chefService.findAll());
+		return "chefs.html";
 	}
 }

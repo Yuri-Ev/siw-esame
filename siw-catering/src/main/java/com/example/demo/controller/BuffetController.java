@@ -72,6 +72,13 @@ public class BuffetController {
 		return "buffetForm.html";
 	}
 
+	
+	@GetMapping("/admin/toDeleteBuffet/{id}")
+	public String toDeleteBuffet(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("buffet",buffetService.searchById(id));
+		return "riepilogoToDeleteBuffet.html";
+	}
+	
 	@Transactional
 	@GetMapping("/admin/deleteBuffet/{id}")
 	public String deleteBuffet(@PathVariable("id") Long id, Model model) {

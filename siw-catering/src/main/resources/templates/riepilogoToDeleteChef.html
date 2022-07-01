@@ -29,18 +29,15 @@
 		</br>
 
 
-    <div>
-        <h4>Elenco piatti:</h4>
-        <div>
-            <ul>
-                <li th:each=piatto:${piatti}><a href="piatto.html"
-                    th:href="@{'/piatto' + '/' + ${piatto.id}}"
-                    th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Paolo Rossi </a>
-                    <span> <a href="piatto.html" th:href="@{'/admin/toDeletePiatto' + '/' + ${piatto.id}}" th:text=Rimuovi>rimuovi</a></span>
-                    </li>
-            </ul>
-        </div>
-    </div>
+	<div>
+		<h4>Dati chef da eliminare</h4>
+		<div>
+			<span th:text="${chef.nome}">Paolo</span> 
+			<span th:text="${chef.cognome}">Rossi</span> 
+			<span th:text="${chef.nazionalita}">Rossi</span> 
+		</div>
+		<a  th:href="@{'/admin/deleteChef' + '/'  + ${chef.id}}">Elimina</a>
+	</div>
 
 </x>
       </div>  
