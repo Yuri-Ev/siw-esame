@@ -79,7 +79,7 @@ public class BuffetController {
 		return "riepilogoToDeleteBuffet.html";
 	}
 	
-	@Transactional
+	
 	@GetMapping("/admin/deleteBuffet/{id}")
 	public String deleteBuffet(@PathVariable("id") Long id, Model model) {
 		buffetService.deleteById(id);

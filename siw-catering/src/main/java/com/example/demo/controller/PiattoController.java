@@ -75,7 +75,7 @@ public class PiattoController {
 	}
 	
 	
-	@Transactional
+
 	@GetMapping("/admin/deletePiatto/{id}")
 	public String deletePiatto(@PathVariable("id") Long id, Model model) {
 		piattoService.deleteById(id);

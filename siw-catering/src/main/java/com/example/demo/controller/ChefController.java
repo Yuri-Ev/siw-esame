@@ -69,7 +69,7 @@ public class ChefController {
 	}
 	
 	
-	@Transactional
+
 	@GetMapping("/admin/deleteChef/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
