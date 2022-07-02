@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Chef;
+import com.example.demo.service.BuffetService;
 import com.example.demo.service.ChefService;
 import com.example.demo.validator.ChefValidator;
 
@@ -25,6 +26,8 @@ public class ChefController {
 	@Autowired
 	ChefValidator validator;
 
+	@Autowired
+	BuffetService buffetService;
 
 
 	@GetMapping("/chefs")
@@ -50,6 +53,7 @@ public class ChefController {
 	public String getChef(@PathVariable("id") Long id, Model model) {
 		Chef chef = chefService.findById(id);
 		model.addAttribute("chef",chef);
+		model.addAttribute("buffetProposti",buffetService.findByPropositore(chef));
 		return "chef.html";
 	}
 

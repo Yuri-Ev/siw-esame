@@ -35,6 +35,21 @@
 								th:text="${chef.cognome}">Cannavacciuolo</span> <span
 								th:text="${chef.nazionalita}">Italia</span>
 						</div>
+
+						<div th:if="${buffetProposti}">
+							<div th:if="${buffetProposti.size() != 0}">
+								<p>Buffet proposti dallo chef:</p>
+								<div th:each=buffet:${buffetProposti}>
+									<a th:text="${buffet.nome}" href="chef.html"
+										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a> </br> </br>
+								</div>
+								</a>
+							</div>
+
+							<div th:unless="${buffetProposti.size() != 0}">
+								<p>Non ci sono buffet proposti da questo Chef</p>
+							</div>
+						</div>
 					</div>
 
 					</x>

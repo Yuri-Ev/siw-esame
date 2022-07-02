@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Buffet;
+import com.example.demo.model.Chef;
 import com.example.demo.repository.BuffetRepository;
 
 @Service
@@ -48,6 +49,11 @@ public class BuffetService {
 	
 	public boolean alreadyExists(Buffet buffet) {
 		return buffetRepository.existsByNomeAndDescrizione(buffet.getNome(),buffet.getDescrizione());
+	}
+	
+	
+	public List<Buffet> findByPropositore(Chef chef){
+		return buffetRepository.findByPropositore(chef);
 	}
 	
 }
