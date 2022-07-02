@@ -32,10 +32,10 @@
 						<ul>
 							<li th:each=buffet:${buffets}><a href="buffet.html"
 								th:href="@{'/buffet' + '/' + ${buffet.id}}"
-								th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}">Paolo
-									Rossi </a> <span> <a href="buffet.html"
+								th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}">Buffet
+							</a> <span> <a href="buffet.html"
 									th:href="@{'/admin/toDeleteBuffet' + '/' + ${buffet.id}}"
-									th:text=Rimuovi>rimuovi</a></span></li>
+									th:text=Rimuovi>Rimuovi</a></span></li>
 						</ul>
 					</div>
 					</x>
