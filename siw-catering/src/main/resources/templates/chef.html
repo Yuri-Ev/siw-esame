@@ -37,10 +37,11 @@
 						</div>
 
 						<div th:if="${buffetProposti}">
+						
 							<div th:if="${buffetProposti.size() != 0}">
 								<p>Buffet proposti dallo chef:</p>
 								<div th:each=buffet:${buffetProposti}>
-									<a th:text="${buffet.nome}" href="chef.html"
+									<a th:text="${buffet.nome}" href="buffet.html"
 										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a> </br> </br>
 								</div>
 								</a>
@@ -50,6 +51,7 @@
 								<p>Non ci sono buffet proposti da questo Chef</p>
 							</div>
 						</div>
+						
 					</div>
 
 					</x>

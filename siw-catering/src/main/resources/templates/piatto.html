@@ -36,12 +36,27 @@
 
 						<div>
 							<h4>Ingredienti presenti nel piatto:</h4>
-							<l>
-							<a th:each="ingrediente : ${piatto.ingredienti}"
+							<l> <a th:each="ingrediente : ${piatto.ingredienti}"
 								th:text="${ingrediente.nome} + ', '" href="ingrediente.html"
 								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">Guanciale</a></l>
 						</div>
 					</div>
+
+					<div th:if="${buffetsConPiatto}">
+						
+							<div th:if="${buffetsConPiatto.size() != 0}">
+								<p>Buffet in cui é presente questo piatto:</p>
+								<div th:each=buffet:${buffetsConPiatto}>
+									<a th:text="${buffet.nome}" href="buffet.html"
+										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a> </br> </br>
+								</div>
+								</a>
+							</div>
+
+							<div th:unless="${buffetsConPiatto.size() != 0}">
+								<p>Non ci sono buffet con questo piatto</p>
+							</div>
+						</div>
 
 					</x>
 				</div>

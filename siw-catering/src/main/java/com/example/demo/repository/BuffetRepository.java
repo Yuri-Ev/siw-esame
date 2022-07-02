@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.demo.model.Buffet;
 import com.example.demo.model.Chef;
+import com.example.demo.model.Piatto;
 
 public interface BuffetRepository extends CrudRepository<Buffet, Long>{
 
@@ -14,4 +15,6 @@ public interface BuffetRepository extends CrudRepository<Buffet, Long>{
 	public boolean existsByNomeAndDescrizione(String nome,String descrizione);
 	
 	public List<Buffet> findByPropositore(Chef chef);
+	
+	public List<Buffet> findByPiattiProposti(Piatto piatto);
 }
