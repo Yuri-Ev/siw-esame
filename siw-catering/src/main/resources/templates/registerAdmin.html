@@ -35,41 +35,34 @@
 								<h6 class="heading">
 									<span>Username:</span>
 								</h6>
-								<h6 class="heading">
-									<span><input type="text" placeholder="username" required
-										th:field="${credentials.username}" /></span>
-								</h6>
-								<p class="nospace"></p>
+
+            		<h6 class="heading"><span><input type="text" placeholder="username" required th:field="${credentials.username}"/></span></h6>
+                    <h6 class="heading" th:if="${#fields.hasErrors('credentials.username')}" th:errors="${credentials.username}" th:style="'color:red'"></h6>
+					<p class="nospace"></p>
 							</div>
 							<div>
 								<h6 class="heading">
 									<span>Password</span>
 								</h6>
-								<h6 class="heading">
-									<span><input type="password" placeholder="password"
-										required th:field="${credentials.password}" /></span>
-								</h6>
-								<p class="nospace"></p>
+            		<h6 class="heading" ><span><input type="password" placeholder="password" required th:field="${credentials.password}"/></span></h6>
+            		<h6 class="heading" th:if="${#fields.hasErrors('credentials.password')}" th:errors="${credentials.password}" th:style="'color:red'"></h6>
+            		<p class="nospace"></p>
 							</div>
 							<div>
 								<h6 class="heading">
 									<span>Nome</span>
 								</h6>
-								<h6 class="heading">
-									<span><input type="text" placeholder="nome" required
-										th:field="${user.nome}" /></span>
-								</h6>
-								<p class="nospace"></p>
+            		<h6 class="heading"><span><input type="text" placeholder="nome" required th:field="${user.nome}"/></span></h6>
+            		<h6 class="heading" th:if="${#fields.hasErrors('user.nome')}" th:errors="${user.nome}" th:style="'color:red'"></h6>
+            		<p class="nospace"></p>
 							</div>
 							<div>
 								<h6 class="heading">
 									<span>Cognome</span>
 								</h6>
-								<h6 class="heading">
-									<span><input type="text" placeholder="cognome" required
-										th:field="${user.cognome}" /></span>
-								</h6>
-								<p class="nospace"></p>
+            		<h6 class="heading"><span><input type="text" placeholder="cognome" required th:field="${user.cognome}"/></span></h6>
+            		<h6 class="heading" th:if="${#fields.hasErrors('user.cognome')}" th:errors="${user.cognome}" th:style="'color:red'"></h6>
+            		<p class="nospace"></p>
 							</div>
 							<div>
 								<h6 class="heading">
