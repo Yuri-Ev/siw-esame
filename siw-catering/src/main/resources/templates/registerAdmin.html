@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Elenco Chef</title>
+<title>Register</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -26,23 +26,58 @@
 			<div id="flex">
 				<div class="flex1">
 					<x> </br>
-
-
 					<div>
-						<y>Elenco chef:</y>
-						<div>
-							<ul>
-								<li th:each=chef:${chefs}><a href="chef.html"
-									th:href="@{'/chef' + '/' + ${chef.id}}"
-									th:text="${chef.nome}+ ' ' + ${chef.cognome}"><l>Paolo
-										Rossi</l></a>
-										<span> <a href="chef.html"
-										th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}"
-										th:text=Rimuovi>rimuovi</a></span></li>
-							</ul>
-						</div>
+						<y>Registrazione</y>
 					</div>
-
+					<form th:action="@{/register}" method="POST">
+						<div>
+							<div>
+								<h6 class="heading">
+									<span>Username:</span>
+								</h6>
+								<h6 class="heading">
+									<span><input type="text" placeholder="username" required
+										th:field="${credentials.username}" /></span>
+								</h6>
+								<p class="nospace"></p>
+							</div>
+							<div>
+								<h6 class="heading">
+									<span>Password</span>
+								</h6>
+								<h6 class="heading">
+									<span><input type="password" placeholder="password"
+										required th:field="${credentials.password}" /></span>
+								</h6>
+								<p class="nospace"></p>
+							</div>
+							<div>
+								<h6 class="heading">
+									<span>Nome</span>
+								</h6>
+								<h6 class="heading">
+									<span><input type="text" placeholder="nome" required
+										th:field="${user.nome}" /></span>
+								</h6>
+								<p class="nospace"></p>
+							</div>
+							<div>
+								<h6 class="heading">
+									<span>Cognome</span>
+								</h6>
+								<h6 class="heading">
+									<span><input type="text" placeholder="cognome" required
+										th:field="${user.cognome}" /></span>
+								</h6>
+								<p class="nospace"></p>
+							</div>
+							<div>
+								<h6 class="heading">
+									<span><button type="submit">Registra</button></span>
+								</h6>
+							</div>
+						</div>
+					</form>
 					</x>
 				</div>
 				<div class="flex2">

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Elenco Chef</title>
+<title>Registrazione completata</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -26,24 +26,7 @@
 			<div id="flex">
 				<div class="flex1">
 					<x> </br>
-
-
-					<div>
-						<y>Elenco chef:</y>
-						<div>
-							<ul>
-								<li th:each=chef:${chefs}><a href="chef.html"
-									th:href="@{'/chef' + '/' + ${chef.id}}"
-									th:text="${chef.nome}+ ' ' + ${chef.cognome}"><l>Paolo
-										Rossi</l></a>
-										<span> <a href="chef.html"
-										th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}"
-										th:text=Rimuovi>rimuovi</a></span></li>
-							</ul>
-						</div>
-					</div>
-
-					</x>
+					<y>Sei stato registrato correttamente</y> </x>
 				</div>
 				<div class="flex2">
 					<div class="flex3">

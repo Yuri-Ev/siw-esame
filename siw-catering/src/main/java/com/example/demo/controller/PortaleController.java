@@ -14,13 +14,13 @@ public class PortaleController {
 	
 	@GetMapping("/")
 	public String Home() {
-		return "home.html";
+		return "user.html";
 	}
 	
 //					/{id}
-	@GetMapping("/user")
+	@GetMapping("/admin")
 	public String getUserPage(Model model) {
-	    return "user.html";
+	    return "home.html";
 	}
 
 	

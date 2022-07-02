@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Elenco Chef</title>
+<title>Login</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -26,24 +26,17 @@
 			<div id="flex">
 				<div class="flex1">
 					<x> </br>
-
-
+					<header th:replace="fragments/base.html :: intestazione"></header>
 					<div>
-						<y>Elenco chef:</y>
+						<y th:text="#{header.index}">Menu</y>
 						<div>
-							<ul>
-								<li th:each=chef:${chefs}><a href="chef.html"
-									th:href="@{'/chef' + '/' + ${chef.id}}"
-									th:text="${chef.nome}+ ' ' + ${chef.cognome}"><l>Paolo
-										Rossi</l></a>
-										<span> <a href="chef.html"
-										th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}"
-										th:text=Rimuovi>rimuovi</a></span></li>
-							</ul>
+							<a href="addPersona">Inserisci dati persona</a>
+						</div>
+						<div>
+							<a href="persona">Elenco persone</a>
 						</div>
 					</div>
-
-					</x>
+										</x>
 				</div>
 				<div class="flex2">
 					<div class="flex3">
