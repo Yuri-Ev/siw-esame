@@ -36,11 +36,11 @@
 								th:text="${chef.nazionalita}">Italia</span>
 						</div>
 
-						<div th:if="${buffetProposti}">
+						<div th:if="${buffetsProposti}">
 						
 							<div th:if="${buffetsProposti.size() != 0}">
 								<p>Buffet proposti dallo chef:</p>
-								<div th:each=buffets:${buffetProposti}>
+								<div th:each=buffet:${buffetsProposti}>
 									<a th:text="${buffet.nome}" href="buffet.html"
 										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a> </br> </br>
 								</div>

@@ -65,7 +65,6 @@ public class ChefController {
 
 
 
-
 	@GetMapping("/admin/toDeleteChef/{id}")
 	public String toDeleteChef(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("chef",chefService.findById(id));
