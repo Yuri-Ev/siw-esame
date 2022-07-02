@@ -53,7 +53,7 @@ public class ChefController {
 	public String getChef(@PathVariable("id") Long id, Model model) {
 		Chef chef = chefService.findById(id);
 		model.addAttribute("chef",chef);
-		model.addAttribute("buffetProposti",buffetService.findByPropositore(chef));
+		model.addAttribute("buffetsProposti",buffetService.findByPropositore(chef));
 		return "chef.html";
 	}
 
