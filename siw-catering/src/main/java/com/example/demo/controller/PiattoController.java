@@ -51,6 +51,7 @@ public class PiattoController {
 			model.addAttribute("piatto",piatto);
 			return "piatto.html";
 		}
+		model.addAttribute("listaIngredienti",ingredienteService.findAll());
 		return "piattoForm.html";
 	}
 
