@@ -53,7 +53,8 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 
                 // login paragraph: qui definiamo come è gestita l'autenticazione
                 // usiamo il protocollo formlogin 
-                .and().formLogin()
+                .and().formLogin().loginPage("/login")
+                .and().oauth2Login().loginPage("/login")
                 // la pagina di login si trova a /login
                 // NOTA: Spring gestisce il post di login automaticamente
                 .loginPage("/login")
