@@ -33,8 +33,8 @@
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
 						<div>
-							Nome buffet: <input type="text" th:field="*{nome}"> <span
-								th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+							Nome buffet: <input type="text" th:field="*{nome}">
+							<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
 						</div>
 
 						<div>
@@ -44,24 +44,24 @@
 						<div>
 							</br>
 							<p>Seleziona i piatti presenti nel buffet</p>
-							<input th:each=piatto:${piatti} type="checkbox"
-								th:text="${piatto.nome} + ' '" th:field="*{piattiProposti}"
-								th:value="${piatto.id}">
-
+							<fieldset>
+								<legend>Piatti registrati</legend>
+								<input th:each=piatto:${piatti} type="checkbox"
+									th:text="${piatto.nome} + ' '" th:field="*{piattiProposti}"
+									th:value="${piatto.id}">
+							</fieldset>
 						</div>
 						<div>
 							</br>
 
 							<div>
 								<p>Seleziona lo Chef che ha proposto il buffet</p>
-								<fieldset>
-									<legend>Chef registrati</legend>
-									<select th:field="*{propositore}">
-										<option th:each=chef:${chefs} th:value="${chef.id}"
-											th:text="${chef.nome} + '  ' + ${chef.cognome}">Chef
-										</option>
-									</select>
-								</fieldset>
+
+								<select th:field="*{propositore}">
+									<option th:each=chef:${chefs} th:value="${chef.id}"
+										th:text="${chef.nome} + '  ' + ${chef.cognome}">Chef
+									</option>
+								</select>
 							</div>
 
 							<button type="submit">Conferma</button>

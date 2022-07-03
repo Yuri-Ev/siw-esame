@@ -14,11 +14,11 @@ public class Chef {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Size(min = 3,max = 30)
+	@Size(max = 20)
 	@NotBlank
 	private String nome;
 	
-	@Size(min = 3,max = 30)
+	@Size(max = 30)
 	@NotBlank
 	private String cognome;
 	

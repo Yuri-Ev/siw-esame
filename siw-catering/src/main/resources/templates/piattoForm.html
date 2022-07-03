@@ -32,9 +32,10 @@
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
 						<div>
-							Nome piatto: <input type="text" th:field="*{nome}"> <span
+							Nome piatto: <input type="text" th:field="*{nome}"> 
+							<p
 								th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
-							</span>
+							</p>
 						</div>
 
 						<div>
