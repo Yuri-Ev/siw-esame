@@ -45,18 +45,16 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 // authorization paragraph: qui definiamo chi può accedere a cosa
                 .authorizeRequests()
                 // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "buffets", "chefs", "piatti", "/css/**", "/images/**", "/layout/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/buffets", "/piatti", "/chefs," "/css/**", "/images/**", "/layout/**").permitAll()
                 // chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
                 .antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
                 // tutti gli utenti autenticati possono accere alle pagine rimanenti 
-                .anyRequest().authenticated()
-
+                .anyRequest().authenticated().and()
                 // login paragraph: qui definiamo come è gestita l'autenticazione
                 // usiamo il protocollo formlogin 
-                .and().formLogin()
+                .oauth2Login()
                 // la pagina di login si trova a /login
                 // NOTA: Spring gestisce il post di login automaticamente
-                .loginPage("/login")
                 // se il login ha successo, si viene rediretti al path /default
                 .defaultSuccessUrl("/")
 
