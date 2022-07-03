@@ -49,7 +49,7 @@ public class BuffetService {
 	}
 	
 	public boolean alreadyExists(Buffet buffet) {
-		return buffetRepository.existsByNomeAndDescrizione(buffet.getNome(),buffet.getDescrizione());
+		return buffetRepository.existsByNome(buffet.getNome());
 	}
 	
 	
