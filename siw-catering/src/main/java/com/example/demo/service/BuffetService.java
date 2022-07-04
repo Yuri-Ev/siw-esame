@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Buffet;
-import com.example.demo.model.Chef;
 import com.example.demo.model.Piatto;
 import com.example.demo.repository.BuffetRepository;
 
@@ -52,10 +51,6 @@ public class BuffetService {
 		return buffetRepository.existsByNome(buffet.getNome());
 	}
 	
-	
-	public List<Buffet> findByPropositore(Chef chef){
-		return buffetRepository.findByPropositore(chef);
-	}
 	
 	public List<Buffet> findByPiatto(Piatto piatto){
 		return buffetRepository.findByPiattiProposti(piatto);
