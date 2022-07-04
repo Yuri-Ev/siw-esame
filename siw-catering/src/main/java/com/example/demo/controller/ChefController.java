@@ -33,14 +33,21 @@ public class ChefController {
 		model.addAttribute("chefs",chefs);
 		return "chefs.html";
 	}
+	
+	@GetMapping("/chefsAdmin")
+	public String getListaChefsAdmin (Model model) {
+		List<Chef> chefs = chefService.findAll();
+		model.addAttribute("chefs",chefs);
+		return "chefsAdmin.html";
+	}
 
-	@PostMapping("/chef")
+	@PostMapping("/chefAdmin")
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef,BindingResult bindingResult, Model model) {
 		validator.validate(chef, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			chefService.save(chef);
 			model.addAttribute("chef",chef);
-			return "chef.html";
+			return "chefAdmin.html";
 		}
 		return "chefForm.html";
 	}
@@ -52,6 +59,14 @@ public class ChefController {
 		model.addAttribute("chef",chef);
 		model.addAttribute("buffetsProposti",chef.getBuffetProposti());
 		return "chef.html";
+	}
+	
+	@GetMapping("/chefAdmin/{id}")
+	public String getChefAdmin(@PathVariable("id") Long id, Model model) {
+		Chef chef = chefService.findById(id);
+		model.addAttribute("chef",chef);
+		model.addAttribute("buffetsProposti",chef.getBuffetProposti());
+		return "chefAdmin.html";
 	}
 
 	@GetMapping("/admin/chef")
@@ -74,6 +89,6 @@ public class ChefController {
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
 		model.addAttribute("chefs", chefService.findAll());
-		return "chefs.html";
+		return "chefsAdmin.html";
 	}
 }

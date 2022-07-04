@@ -17,7 +17,7 @@
 					<img src="/css/capg.png" width="50" height="40" align="left">
 					CATERING.IT
 					<div class="menu-log">
-						<a th:href="@{/login}"><b>Login</b></a>
+						<a th:href="@{/logout}"><b>Logout</b></a>
 					</div>
 				</nav>
 			</div>
@@ -31,12 +31,14 @@
 					<div>
 						<y>Elenco piatti:</y>
 						<div>
-							<p>
-								<span th:each=piatto:${piatti}><l><a href="piatto.html"
-									th:href="@{'/piatto' + '/' + ${piatto.id}}"
+							<div>
+								<p th:each=piatto:${piatti}><l><a href="piatto.html"
+									th:href="@{'/piattoAdmin' + '/' + ${piatto.id}}"
 									th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Carbonara
-										Descrizione</a></l></br></span>
-							</p>
+										Descrizione</a></l> <span> <a href="piatto.html"
+										th:href="@{'/admin/toDeletePiatto' + '/' + ${piatto.id}}"
+										th:text=Rimuovi>Rimuovi</a></br></span></p>
+							</div>
 						</div>
 					</div>
 
@@ -45,7 +47,7 @@
 				<div class="flex2">
 					<div class="flex3">
 						<div class="c">
-							<a th:href="@{/buffets}"><img border="0"
+							<a th:href="@{/buffetsAdmin}"><img border="0"
 								style="width: 100%; max-width: 275px" src="/css/buffet1.png"
 								onmouseover="this.src='/css/Buffet.jpg';"
 								onmouseout="this.src='/css/buffet1.png';" /></a>
@@ -53,7 +55,7 @@
 					</div>
 					<div class="flex3">
 						<div class="b">
-							<a th:href="@{/piatti}"><img border="0"
+							<a th:href="@{/piattiAdmin}"><img border="0"
 								style="width: 100%; max-width: 275px" src="/css/PIATTO.jpg"
 								onmouseover="this.src='/css/Piatti.jpg';"
 								onmouseout="this.src='/css/PIATTO.jpg';" /></a>
@@ -61,7 +63,7 @@
 					</div>
 					<div class="flex3">
 						<div class="a">
-							<a th:href="@{/chefs}"><img border="0"
+							<a th:href="@{/chefsAdmin}"><img border="0"
 								style="width: 100%; max-width: 275px" src="/css/TOQUE.jpg"
 								onmouseover="this.src='/css/Chef.jpg';"
 								onmouseout="this.src='/css/TOQUE.jpg';" /></a>
@@ -72,7 +74,7 @@
 		</div>
 		<!-- Footer Section -->
 		<footer>
-			<a th:href="@{/}">Home</a>
+			<a th:href="@{/admin}">Home</a>
 		</footer>
 	</div>
 

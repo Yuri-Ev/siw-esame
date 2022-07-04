@@ -39,7 +39,7 @@
 						<div th:if="${buffetsProposti}">
 						
 							<div th:if="${buffetsProposti.size() != 0}">
-								<p>Buffet proposti dallo chef:</p>
+								<h4>Buffet proposti dallo chef:</h4>
 								<div th:each=buffet:${buffetsProposti}>
 									<l><a th:text="${buffet.nome}" href="buffet.html"
 										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a></l></br></br>
@@ -48,7 +48,7 @@
 							</div>
 
 							<div th:unless="${buffetsProposti.size() != 0}">
-								<p>Non ci sono buffet proposti da questo Chef</p>
+								<h4>Non ci sono buffet proposti da questo Chef</h4>
 							</div>
 						</div>
 						
@@ -82,7 +82,7 @@
 
 		<!-- Footer Section -->
 		<footer>
-			<a th:href="@{/admin}">Home</a>
+			<a th:href="@{/}">Home</a>
 		</footer>
 	</div>
 

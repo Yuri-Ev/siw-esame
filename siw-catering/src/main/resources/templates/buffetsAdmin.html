@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Riepilogo buffet da eliminare</title>
+<title>Elenco Buffet</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -17,7 +17,7 @@
 					<img src="/css/capg.png" width="50" height="40" align="left">
 					CATERING.IT
 					<div class="menu-log">
-						<a th:href="@{/}"><b>Logout</b></a>
+						<a th:href="@{/logout}"><b>Logout</b></a>
 					</div>
 				</nav>
 			</div>
@@ -26,31 +26,23 @@
 			<div id="flex">
 				<div class="flex1">
 					<x> </br>
-					<y>Riepilogo dati del buffet da eliminare</y></br>
-					<div>
-						Nome:<span th:text="${buffet.nome}">Buffet</span></br> 
-						Descrizione:<span th:text="${buffet.descrizione}">Descrizione</span></br>
-					</div>
-					<div>
-					</br>
-						<h4>Buffet proposto dallo chef:</h4></br>
-						<a
-							th:text="${buffet.propositore.nome} + ' ' + ${buffet.propositore.cognome}"
-							th:href="@{'/chefAdmin' + '/' + ${buffet.propositore.id}}">Antonino
-							Cannavacciuolo </a>
-					</div>
 
+					<y>Elenco buffet:</y>
 					<div>
-					</br>
-						<h4>Piatti:</h4></br>
-						<p>
-							<span th:each=piatto:${buffet.piattiProposti}><a
-								href="piatto.html" th:href="@{'/piattoAdmin' + '/' + ${piatto.id}}"
-								th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Carbonara
-							</a></span>
-						</p>
+						<div>
+							<p th:each=buffet:${buffets}><l><a href="buffet.html"
+								th:href="@{'/buffetAdmin' + '/' + ${buffet.id}}"
+								th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}">Buffet
 
-						<a th:href="@{'/admin/deleteBuffet' + '/'  + ${buffet.id}}"><h4>Elimina</h4></a>
+							</a></l><span> <a href="buffet.html"
+									th:href="@{'/admin/editBuffet' + '/' + ${buffet.id}}"
+									th:text=Modifica>Modifica</a>
+							
+																
+									 <a href="buffetAdmin.html"
+									th:href="@{'/admin/toDeleteBuffet' + '/' + ${buffet.id}}"
+									th:text=Rimuovi>Rimuovi</a></br></span></p>
+						</div>
 					</div>
 					</x>
 				</div>
