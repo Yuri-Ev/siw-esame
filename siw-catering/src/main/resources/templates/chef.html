@@ -31,10 +31,27 @@
 					<div>
 						<y>Riepilogo dati chef</y>
 						<div>
-							<span th:text="${chef.nome}">Paolo</span> <span
-								th:text="${chef.cognome}">Rossi</span> <span
-								th:text="${chef.nazionalita}">Rossi</span>
+							<span th:text="${chef.nome}">Antonino</span> <span
+								th:text="${chef.cognome}">Cannavacciuolo</span> <span
+								th:text="${chef.nazionalita}">Italia</span>
 						</div>
+
+						<div th:if="${buffetsProposti}">
+						
+							<div th:if="${buffetsProposti.size() != 0}">
+								<p>Buffet proposti dallo chef:</p>
+								<div th:each=buffet:${buffetsProposti}>
+									<a th:text="${buffet.nome}" href="buffet.html"
+										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a> </br> </br>
+								</div>
+								</a>
+							</div>
+
+							<div th:unless="${buffetsProposti.size() != 0}">
+								<p>Non ci sono buffet proposti da questo Chef</p>
+							</div>
+						</div>
+						
 					</div>
 
 					</x>

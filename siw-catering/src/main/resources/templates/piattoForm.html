@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Aggiungi Piatto</title>
+<title>Form Piatto</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -32,9 +32,10 @@
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
 						<div>
-							Nome piatto: <input type="text" th:field="*{nome}"> <span
+							Nome piatto: <input type="text" th:field="*{nome}"> 
+							<p
 								th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
-							</span>
+							</p>
 						</div>
 
 						<div>

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Buffet;
+import com.example.demo.model.Chef;
+import com.example.demo.model.Piatto;
 import com.example.demo.repository.BuffetRepository;
 
 @Service
@@ -21,11 +23,11 @@ public class BuffetService {
 		return buffetRepository.save(buffet);
 	}
 	
-	public List<Buffet> searchByNome(String nome){
+	public List<Buffet> findByNome(String nome){
 		return buffetRepository.findByNome(nome);
 	}
 	
-	public Buffet searchById(Long id){
+	public Buffet findById(Long id){
 		return buffetRepository.findById(id).get();
 	}
 	
@@ -36,7 +38,7 @@ public class BuffetService {
 	
 	@Transactional
 	public void deleteById(Long id) {
-		buffetRepository.delete(searchById(id));
+		buffetRepository.delete(findById(id));
 	}
 	
 	public List<Buffet> findAll(){
@@ -47,7 +49,15 @@ public class BuffetService {
 	}
 	
 	public boolean alreadyExists(Buffet buffet) {
-		return buffetRepository.existsByNomeAndDescrizione(buffet.getNome(),buffet.getDescrizione());
+		return buffetRepository.existsByNome(buffet.getNome());
 	}
 	
+	
+	public List<Buffet> findByPropositore(Chef chef){
+		return buffetRepository.findByPropositore(chef);
+	}
+	
+	public List<Buffet> findByPiatto(Piatto piatto){
+		return buffetRepository.findByPiattiProposti(piatto);
+	}
 }

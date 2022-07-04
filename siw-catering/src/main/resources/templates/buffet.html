@@ -28,14 +28,14 @@
 					<x> </br>
 					<y>Riepilogo dati buffet</y></br>
 					<div>
-						<span th:text="${buffet.nome}"><l>Paolo</l></span> <span
-							th:text="${buffet.descrizione}"><l>Rossi</l></span>
+						<span th:text="${buffet.nome}"><l>Buffet</l></span> <span
+							th:text="${buffet.descrizione}">Buffet freddo<l></l></span>
 					</div></br>
 					<div>
 						<y>Buffet proposto dallo chef:</y></br>
 						<a
 							th:text="${buffet.propositore.nome} + ' ' + ${buffet.propositore.cognome}"
-							th:href="@{'/chef' + '/' + ${buffet.propositore.id}}"> </a>
+							th:href="@{'/chef' + '/' + ${buffet.propositore.id}}">Antonino Cannavacciuolo</a>
 					</div></br>
 
 					<div>
@@ -43,8 +43,8 @@
 						<ul>
 							<li th:each=piatto:${buffet.piattiProposti}><a
 								href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
-								th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Paolo
-									Rossi </a></li>
+								th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Carbonara </a>
+								</li>
 						</ul>
 					</div>
 					</x>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>Dati Buffet</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
 	<div id="page-container">
@@ -28,15 +28,15 @@
 					<x> </br>
 
 
-	<div>
-		<y>Dati chef da eliminare</y>
-		<div>
-			<span th:text="${chef.nome}">Paolo</span> 
-			<span th:text="${chef.cognome}">Rossi</span> 
-			<span th:text="${chef.nazionalita}">Rossi</span> 
-		</div>
-		<a  th:href="@{'/admin/deleteChef' + '/'  + ${chef.id}}">Elimina</a>
-	</div>
+					<div>
+						<y>Dati chef da eliminare</y>
+						<div>
+							<span th:text="${chef.nome}">Antonino</span> <span
+								th:text="${chef.cognome}">Cannavacciuolo</span> <span
+								th:text="${chef.nazionalita}">Italia</span>
+						</div>
+						<a th:href="@{'/admin/deleteChef' + '/'  + ${chef.id}}">Elimina</a>
+					</div>
 
 					</x>
 				</div>

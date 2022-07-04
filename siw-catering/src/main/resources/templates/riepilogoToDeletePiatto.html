@@ -30,15 +30,15 @@
 					<div>
 						<y>Dati piatto da eliminare</y>
 						<div>
-							<span th:text="${piatto.nome}">Paolo</span> <span
-								th:text="${piatto.descrizione}">Rossi</span>
+							<span th:text="${piatto.nome}">Carbonara</span> <span
+								th:text="${piatto.descrizione}">Descrizione</span>
 						</div>
 
 						<div>
 							<y>Ingredienti presenti nel piatto:</y>
 							<a th:each="ingrediente : ${piatto.ingredienti}"
 								th:text="${ingrediente.nome} + ', '" href="ingrediente.html"
-								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"></a>
+								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">Guanciale</a>
 						</div>
 						<a th:href="@{'/admin/deletePiatto' + '/'  + ${piatto.id}}">Elimina</a>
 					</div>

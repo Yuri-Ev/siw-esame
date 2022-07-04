@@ -2,14 +2,16 @@ package com.example.demo.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Buffet {
@@ -18,16 +20,18 @@ public class Buffet {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Column(nullable = false)
+	
 	@NotBlank
 	private String nome;
 	
-	@Column(length = 100)
+	@Size(max = 100)
 	private String descrizione;
 
-	@ManyToOne
+	@NotNull
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Chef propositore;
 	
+	@NotNull
 	@ManyToMany
 	private List<Piatto> piattiProposti;
 	

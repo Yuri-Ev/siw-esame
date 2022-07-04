@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Piatto {
@@ -15,10 +16,10 @@ public class Piatto {
 	@NotBlank
 	private String nome;
 	
-	@Column(length = 100)
+	@Size(max = 100)
 	private String descrizione;
 
-	@OneToMany
+	@ManyToMany
 	private List<Ingrediente> ingredienti;
 	
 	

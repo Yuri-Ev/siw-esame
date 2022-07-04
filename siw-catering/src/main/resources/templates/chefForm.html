@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Aggiungi chef</title>
+<title>Form Chef</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -33,13 +33,13 @@
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
 						<div>
-							Nome Chef: <input type="text" th:field="*{nome}"> <span
-								th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+							Nome Chef: <input type="text" th:field="*{nome}"> <p
+								th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
 						</div>
 
 						<div>
-							Cognome Chef: <input type="text" th:field="*{cognome}"> <span
-								th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+							Cognome Chef: <input type="text" th:field="*{cognome}"> <p
+								th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p>
 						</div>
 
 						<div>

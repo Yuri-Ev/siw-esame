@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +35,9 @@ public class BuffetController {
 	@Autowired
 	ChefService chefService;
 
+	
 	@GetMapping("/buffets")
-	public String getListaBuffet(Model model) {
+	public String getListaBuffets(Model model) {
 		List<Buffet> buffets = buffetService.findAll();
 		model.addAttribute("buffets", buffets);
 		return "buffets.html";
@@ -52,12 +52,14 @@ public class BuffetController {
 			model.addAttribute("buffet",buffet);
 			return "buffet.html";
 		}
+		model.addAttribute("piatti",piattoService.findAll());
+		model.addAttribute("chefs",chefService.findAll());
 		return "buffetForm.html";
 	}
 
 	@GetMapping("/buffet/{id}")
-	public String getDatiBuffet(@PathVariable("id") Long id, Model model) {
-		Buffet buffet = buffetService.searchById(id);
+	public String getBuffet(@PathVariable("id") Long id, Model model) {
+		Buffet buffet = buffetService.findById(id);
 		model.addAttribute("buffet",buffet);
 		return "buffet.html";
 	}
@@ -72,14 +74,14 @@ public class BuffetController {
 		return "buffetForm.html";
 	}
 
-	
+
 	@GetMapping("/admin/toDeleteBuffet/{id}")
 	public String toDeleteBuffet(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("buffet",buffetService.searchById(id));
+		model.addAttribute("buffet",buffetService.findById(id));
 		return "riepilogoToDeleteBuffet.html";
 	}
-	
-	@Transactional
+
+
 	@GetMapping("/admin/deleteBuffet/{id}")
 	public String deleteBuffet(@PathVariable("id") Long id, Model model) {
 		buffetService.deleteById(id);

@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Chef;
+import com.example.demo.service.BuffetService;
 import com.example.demo.service.ChefService;
 import com.example.demo.validator.ChefValidator;
 
@@ -26,10 +26,12 @@ public class ChefController {
 	@Autowired
 	ChefValidator validator;
 
+	@Autowired
+	BuffetService buffetService;
 
 
 	@GetMapping("/chefs")
-	public String getChefs (Model model) {
+	public String getListaChefs (Model model) {
 		List<Chef> chefs = chefService.findAll();
 		model.addAttribute("chefs",chefs);
 		return "chefs.html";
@@ -47,6 +49,13 @@ public class ChefController {
 	}
 
 
+	@GetMapping("/chef/{id}")
+	public String getChef(@PathVariable("id") Long id, Model model) {
+		Chef chef = chefService.findById(id);
+		model.addAttribute("chef",chef);
+		model.addAttribute("buffetsProposti",buffetService.findByPropositore(chef));
+		return "chef.html";
+	}
 
 	@GetMapping("/admin/chef")
 	public String getFormChef(Model model){
@@ -54,22 +63,16 @@ public class ChefController {
 		return "chefForm.html";
 	}
 
-	@GetMapping("/chef/{id}")
-	public String getChef(@PathVariable("id") Long id, Model model) {
-		Chef chef = chefService.findById(id);
-		model.addAttribute("chef",chef);
-		return "chef.html";
-	}
-	
-	
+
+
 	@GetMapping("/admin/toDeleteChef/{id}")
 	public String toDeleteChef(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("chef",chefService.findById(id));
 		return "riepilogoToDeleteChef.html";
 	}
-	
-	
-	@Transactional
+
+
+
 	@GetMapping("/admin/deleteChef/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
