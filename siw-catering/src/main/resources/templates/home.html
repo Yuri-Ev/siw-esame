@@ -17,7 +17,7 @@
 					<img src="/css/capg.png" width="50" height="40" align="left">
 					NOME
 					<div class="menu-log">
-						<a th:href="@{/}"><b>Login</b></a>
+						<b>Benvenuto</b><a sec:authentication="name"><b></b></a>
 					</div>
 				</nav>
 			</div>
@@ -27,15 +27,6 @@
 				<div class="flex1">
 					<x> </br>
 					<div>
-						<y>Operazioni user:</y>
-						<div>
-							<a th:href="@{/buffets}"><l>Elenco buffet</l></a>
-							<div></div>
-							<a th:href="@{/chefs}"><l>Elenco chef</l></a>
-							<div></div>
-							<a th:href="@{/piatti}"><l>Elenco piatti</l></a>
-						</div>
-						</br>
 						<y>Operazioni admin:</y>
 						<div>
 							<a th:href="@{/admin/buffet}"><l>Aggiungi un buffet</l></a>
@@ -75,7 +66,7 @@
 
 		<!-- Footer Section -->
 		<footer>
-			<a th:href="@{/user}">Home</a>
+			<a th:href="@{/}">Home</a>
 		</footer>
 	</div>
 </body>
