@@ -22,10 +22,11 @@ public class PortaleController {
 	public String getUserPage(Model model) {
 	    return "home.html";
 	}
-
 	
-
-	
+	@GetMapping("/contatti")
+	public String getContattiPage(Model model) {
+	    return "contatti.html";
+	}	
 
 	
 	@PostMapping("/admin/{id}")

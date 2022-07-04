@@ -17,7 +17,7 @@
 					<img src="/css/capg.png" width="50" height="40" align="left">
 					NOME
 					<div class="menu-log">
-						<a th:href="@{/}"><b>Login</b></a>
+						<a th:href="@{/login}"><b>Login</b></a>
 					</div>
 				</nav>
 			</div>
@@ -26,9 +26,8 @@
 			<div id="flex">
 				<div class="flex1">
 					<x> </br>
-					<header th:replace="fragments/base.html :: intestazione"></header>
 					<div>
-						<y th:text="#{header.index}">Menu</y>
+						<y>Menu</y>
 						<div>
 							<a href="addPersona">Inserisci dati persona</a>
 						</div>
@@ -36,7 +35,7 @@
 							<a href="persona">Elenco persone</a>
 						</div>
 					</div>
-										</x>
+					</x>
 				</div>
 				<div class="flex2">
 					<div class="flex3">

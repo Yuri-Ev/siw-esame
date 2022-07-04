@@ -17,7 +17,7 @@
 					<img src="/css/capg.png" width="50" height="40" align="left">
 					NOME
 					<div class="menu-log">
-						<a th:href="@{/}"><b>Login</b></a>
+						<a th:href="@{/login}"><b>Login</b></a>
 					</div>
 				</nav>
 			</div>
@@ -26,7 +26,7 @@
 			<div id="flex">
 				<div class="flex1">
 					<x> </br>
-					<a href="/oauth2/authorization/google">Google</a>
+					<div>Questa pagina è ad utilizzo esclusivo degli amministratori del sito</div></br>
 					<div>
 						<y>Login</y>
 					</div>
@@ -34,31 +34,36 @@
 					<form th:action="@{/login}" method="POST">
 						<div>
 							<div>
-								<h6 class="heading">
+								<h6>
 									<span>Username:</span>
 								</h6>
-								<h6 class="heading">
+								<h6>
 									<span><input name="username" type="text" required /></span>
 								</h6>
 							</div>
-							<p class="nospace"></p>
 							<div>
-								<h6 class="heading">
+								<h6>
 									<span>Password:</span>
 								</h6>
-								<h6 class="heading">
+								<h6>
 									<span><input name="password" type="password" required /></span>
 								</h6>
 							</div>
 							<div>
-								<p class="nospace"></p>
-								<h6 class="heading">
+								<h6>
 									<span><button type="submit">Login</button></span>
 								</h6>
 							</div>
 						</div>
 					</form>
-										</x>
+					</br>
+					<y>Non sei iscritto?</y></br>
+					<div>
+					Accedi con	<a href="/oauth2/authorization/google"><l>Google</l></a>
+					o
+					<a th:href="@{/register}"><l>Registrati</l></a>
+					</div>
+					</x>
 				</div>
 				<div class="flex2">
 					<div class="flex3">
