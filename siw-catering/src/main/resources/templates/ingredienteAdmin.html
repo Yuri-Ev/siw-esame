@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Riepilogo buffet da eliminare</title>
+<title>Dati Ingrediente</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -17,7 +17,7 @@
 					<img src="/css/capg.png" width="50" height="40" align="left">
 					CATERING.IT
 					<div class="menu-log">
-						<a th:href="@{/}"><b>Logout</b></a>
+						<a th:href="@{/logout}"><b>Logout</b></a>
 					</div>
 				</nav>
 			</div>
@@ -26,32 +26,14 @@
 			<div id="flex">
 				<div class="flex1">
 					<x> </br>
-					<y>Riepilogo dati del buffet da eliminare</y></br>
 					<div>
-						Nome:<span th:text="${buffet.nome}">Buffet</span></br> 
-						Descrizione:<span th:text="${buffet.descrizione}">Descrizione</span></br>
-					</div>
-					<div>
-					</br>
-						<h4>Buffet proposto dallo chef:</h4></br>
-						<a
-							th:text="${buffet.propositore.nome} + ' ' + ${buffet.propositore.cognome}"
-							th:href="@{'/chefAdmin' + '/' + ${buffet.propositore.id}}">Antonino
-							Cannavacciuolo </a>
+						<y>Dati ingrediente</y>
+						<div>
+							<span th:text="${ingrediente.nome}"><l>Mela</l></span> <span
+								th:text="${ingrediente.descrizione}"><l>Frutta</l></span>
+						</div>
 					</div>
 
-					<div>
-					</br>
-						<h4>Piatti:</h4></br>
-						<p>
-							<span th:each=piatto:${buffet.piattiProposti}><a
-								href="piatto.html" th:href="@{'/piattoAdmin' + '/' + ${piatto.id}}"
-								th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Carbonara
-							</a></span>
-						</p>
-
-						<a th:href="@{'/admin/deleteBuffet' + '/'  + ${buffet.id}}"><h4>Elimina</h4></a>
-					</div>
 					</x>
 				</div>
 				<div class="flex2">
@@ -75,7 +57,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<!-- Footer Section -->

@@ -27,7 +27,7 @@
 				<div class="flex1">
 					<x> </br>
 					<y>Inserisci i dati del piatto da inserire:</y> <br></br>
-					<form th:action="@{/piatto}" method="post" th:object="${piatto}">
+					<form th:action="@{/piattoAdmin}" method="post" th:object="${piatto}">
 						<div th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
@@ -44,7 +44,7 @@
 
 						<div>
 							</br>
-							<p>Inserisci gli ingredienti presenti nel piatto</p>
+							<h4>Inserisci gli ingredienti presenti nel piatto</h4>
 							<select class="select" th:field="*{ingredienti}" multiple>
 								<option th:each="ingrediente : ${listaIngredienti}"
 									th:value="${ingrediente.id}" th:text="${ingrediente.nome}">Ingrediente</option>
@@ -59,19 +59,19 @@
 				</div>
 				<div class="flex2">
 					<div class="flex3">
-						<a th:href="@{/buffets}"><img border="0"
+						<a th:href="@{/buffetsAdmin}"><img border="0"
 							style="width: 100%; max-width: 275px" src="/css/buffet1.png"
 							onmouseover="this.src='/css/Buffet.jpg';"
 							onmouseout="this.src='/css/buffet1.png';" /></a>
 					</div>
 					<div class="flex3">
-						<a th:href="@{/piatti}"><img border="0"
+						<a th:href="@{/piattiAdmin}"><img border="0"
 							style="width: 100%; max-width: 275px" src="/css/PIATTO.jpg"
 							onmouseover="this.src='/css/Piatti.jpg';"
 							onmouseout="this.src='/css/PIATTO.jpg';" /></a>
 					</div>
 					<div class="flex3">
-						<a th:href="@{/chefs}"><img border="0"
+						<a th:href="@{/chefsAdmin}"><img border="0"
 							style="width: 100%; max-width: 275px" src="/css/TOQUE.jpg"
 							onmouseover="this.src='/css/Chef.jpg';"
 							onmouseout="this.src='/css/TOQUE.jpg';" /></a>

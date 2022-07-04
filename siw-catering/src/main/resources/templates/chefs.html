@@ -26,19 +26,15 @@
 			<div id="flex">
 				<div class="flex1">
 					<x> </br>
-
-
 					<div>
 						<y>Elenco chef:</y>
 						<div>
-							<ul>
-								<li th:each=chef:${chefs}><a href="chef.html"
+							<p>
+								<span th:each=chef:${chefs}><l><a href="chef.html"
 									th:href="@{'/chef' + '/' + ${chef.id}}"
-									th:text="${chef.nome}+ ' ' + ${chef.cognome}"><l>Antonino
-										Cannavacciuolo</l></a> <span> <a href="chef.html"
-										th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}"
-										th:text=Rimuovi>Rimuovi</a></span></li>
-							</ul>
+									th:text="${chef.nome}+ ' ' + ${chef.cognome}">Antonino
+										Cannavacciuolo</a></l></span>
+							</p>
 						</div>
 					</div>
 

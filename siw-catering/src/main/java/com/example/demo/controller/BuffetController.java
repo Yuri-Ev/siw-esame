@@ -42,15 +42,22 @@ public class BuffetController {
 		model.addAttribute("buffets", buffets);
 		return "buffets.html";
 	}
+	
+	@GetMapping("/buffetsAdmin")
+	public String getListaBuffetsAdmin(Model model) {
+		List<Buffet> buffets = buffetService.findAll();
+		model.addAttribute("buffets", buffets);
+		return "buffetsAdmin.html";
+	}
 
 
-	@PostMapping("/buffet")
+	@PostMapping("/buffetAdmin")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet,BindingResult bindingResult, Model model) {
 		validator.validate(buffet, bindingResult);
 		if (!bindingResult.hasErrors()) {
 			buffetService.save(buffet);
 			model.addAttribute("buffet",buffet);
-			return "buffet.html";
+			return "buffetAdmin.html";
 		}
 		model.addAttribute("piatti",piattoService.findAll());
 		model.addAttribute("chefs",chefService.findAll());
@@ -62,6 +69,13 @@ public class BuffetController {
 		Buffet buffet = buffetService.findById(id);
 		model.addAttribute("buffet",buffet);
 		return "buffet.html";
+	}
+	
+	@GetMapping("/buffetAdmin/{id}")
+	public String getBuffetAdmin(@PathVariable("id") Long id, Model model) {
+		Buffet buffet = buffetService.findById(id);
+		model.addAttribute("buffet",buffet);
+		return "buffetAdmin.html";
 	}
 
 	@GetMapping("/admin/buffet")
@@ -86,7 +100,7 @@ public class BuffetController {
 	public String deleteBuffet(@PathVariable("id") Long id, Model model) {
 		buffetService.deleteById(id);
 		model.addAttribute("buffets", buffetService.findAll());
-		return "buffets.html";
+		return "buffetsAdmin.html";
 	}
 
 
@@ -108,7 +122,7 @@ public class BuffetController {
 		if (!bindingResult.hasErrors()) {
 			buffetService.save(buffet);
 			model.addAttribute("buffet",buffet);
-			return "buffet.html";
+			return "buffetAdmin.html";
 		}
 		model.addAttribute("piatti",piattoService.findAll());
 		model.addAttribute("chefs",chefService.findAll());

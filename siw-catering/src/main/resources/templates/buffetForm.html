@@ -17,7 +17,7 @@
 					<img src="/css/capg.png" width="50" height="40" align="left">
 					CATERING.IT
 					<div class="menu-log">
-						<a th:href="@{/}"><b>Logout</b></a>
+						<a th:href="@{/logout}"><b>Logout</b></a>
 					</div>
 				</nav>
 			</div>
@@ -28,7 +28,7 @@
 					<x> </br>
 
 					<y>Inserisci i dati del buffet da inserire:</y>
-					<form th:action="@{/buffet}" method="post" th:object="${buffet}">
+					<form th:action="@{/buffetAdmin}" method="post" th:object="${buffet}">
 						<div th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
@@ -43,7 +43,7 @@
 
 						<div>
 							</br>
-							<p>Seleziona i piatti presenti nel buffet</p>
+							<h4>Seleziona i piatti presenti nel buffet</h4>
 							<fieldset>
 								<legend>Piatti registrati</legend>
 								<input th:each=piatto:${piatti} type="checkbox"
@@ -56,7 +56,7 @@
 							</br>
 
 							<div>
-								<p>Seleziona lo Chef che ha proposto il buffet</p>
+								<h4>Seleziona lo Chef che ha proposto il buffet</h4>
 
 								<select th:field="*{propositore}">
 									<option th:each=chef:${chefs} th:value="${chef.id}"
@@ -74,19 +74,19 @@
 				</div>
 				<div class="flex2">
 					<div class="flex3">
-						<a th:href="@{/buffets}"><img border="0"
+						<a th:href="@{/buffetsAdmin}"><img border="0"
 							style="width: 100%; max-width: 275px" src="/css/buffet1.png"
 							onmouseover="this.src='/css/Buffet.jpg';"
 							onmouseout="this.src='/css/buffet1.png';" /></a>
 					</div>
 					<div class="flex3">
-						<a th:href="@{/piatti}"><img border="0"
+						<a th:href="@{/piattiAdmin}"><img border="0"
 							style="width: 100%; max-width: 275px" src="/css/PIATTO.jpg"
 							onmouseover="this.src='/css/Piatti.jpg';"
 							onmouseout="this.src='/css/PIATTO.jpg';" /></a>
 					</div>
 					<div class="flex3">
-						<a th:href="@{/chefs}"><img border="0"
+						<a th:href="@{/chefsAdmin}"><img border="0"
 							style="width: 100%; max-width: 275px" src="/css/TOQUE.jpg"
 							onmouseover="this.src='/css/Chef.jpg';"
 							onmouseout="this.src='/css/TOQUE.jpg';" /></a>

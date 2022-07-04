@@ -28,38 +28,38 @@
 					<x> </br>
 
 					<div>
-						<y>Dati piatto da eliminare</y>
+						<y>Dati piatto da eliminare</y></br>
 						<div>
 							<span th:text="${piatto.nome}">Carbonara</span> <span
 								th:text="${piatto.descrizione}">Descrizione</span>
 						</div>
 
 						<div>
-							<y>Ingredienti presenti nel piatto:</y>
+							<h4>Ingredienti presenti nel piatto:</h4></br>
 							<a th:each="ingrediente : ${piatto.ingredienti}"
 								th:text="${ingrediente.nome} + ', '" href="ingrediente.html"
 								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">Guanciale</a>
 						</div>
-						<a th:href="@{'/admin/deletePiatto' + '/'  + ${piatto.id}}">Elimina</a>
+						<a th:href="@{'/admin/deletePiatto' + '/'  + ${piatto.id}}"><h4>Elimina</h4></a>
 					</div>
 
 					</x>
 				</div>
 				<div class="flex2">
 					<div class="flex3">
-						<a th:href="@{/buffets}"><img border="0"
+						<a th:href="@{/buffetsAdmin}"><img border="0"
 							style="width: 100%; max-width: 275px" src="/css/buffet1.png"
 							onmouseover="this.src='/css/Buffet.jpg';"
 							onmouseout="this.src='/css/buffet1.png';" /></a>
 					</div>
 					<div class="flex3">
-						<a th:href="@{/piatti}"><img border="0"
+						<a th:href="@{/piattiAdmin}"><img border="0"
 							style="width: 100%; max-width: 275px" src="/css/PIATTO.jpg"
 							onmouseover="this.src='/css/Piatti.jpg';"
 							onmouseout="this.src='/css/PIATTO.jpg';" /></a>
 					</div>
 					<div class="flex3">
-						<a th:href="@{/chefs}"><img border="0"
+						<a th:href="@{/chefsAdmin}"><img border="0"
 							style="width: 100%; max-width: 275px" src="/css/TOQUE.jpg"
 							onmouseover="this.src='/css/Chef.jpg';"
 							onmouseout="this.src='/css/TOQUE.jpg';" /></a>

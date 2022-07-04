@@ -45,7 +45,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 // authorization paragraph: qui definiamo chi può accedere a cosa
                 .authorizeRequests()
                 // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/contatti", "/buffets", "/chefs", "/buffet", "/chef", "/piatto", "/ingrediente", "/piatti", "/css/**", "/images/**", "/layout/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/contatti", "/buffet/**", "/buffets", "/chef/**", "/chefs", "/piatto/**", "/piatti", "/ingrediente/**",  "/css/**", "/images/**", "/layout/**").permitAll()
                 // chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
                 .antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
                 // tutti gli utenti autenticati possono accere alle pagine rimanenti 
@@ -66,7 +66,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")
                 // in caso di successo, si viene reindirizzati alla /index page
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/index")        
+                .logoutSuccessUrl("/")        
                 .invalidateHttpSession(true)
                 .clearAuthentication(true).permitAll();
     }

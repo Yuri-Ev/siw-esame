@@ -45,7 +45,7 @@
 					<div th:if="${buffetsConPiatto}">
 						
 							<div th:if="${buffetsConPiatto.size() != 0}">
-								<p>Buffet in cui é presente questo piatto:</p>
+								<h4>Buffet in cui é presente questo piatto:</h4>
 								<div th:each=buffet:${buffetsConPiatto}>
 									<l><a th:text="${buffet.nome}" href="buffet.html"
 										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a></l></br></br>
@@ -54,7 +54,7 @@
 							</div>
 
 							<div th:unless="${buffetsConPiatto.size() != 0}">
-								<p>Non ci sono buffet con questo piatto</p>
+								<h4>Non ci sono buffet con questo piatto</h4>
 							</div>
 						</div>
 
@@ -86,7 +86,7 @@
 
 		<!-- Footer Section -->
 		<footer>
-			<a th:href="@{/admin}">Home</a>
+			<a th:href="@{/}">Home</a>
 		</footer>
 	</div>
 

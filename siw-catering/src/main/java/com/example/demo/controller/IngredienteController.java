@@ -21,4 +21,11 @@ public class IngredienteController {
 		model.addAttribute("ingrediente",ingrediente);
 		return "ingrediente.html";
 	}
+	
+	@GetMapping("/ingredienteAdmin/{id}")
+	public String getDatiIngredienteAdmin(@PathVariable("id") Long id, Model model) {
+		Ingrediente ingrediente = ingredienteService.findById(id);
+		model.addAttribute("ingrediente",ingrediente);
+		return "ingredienteAdmin.html";
+	}
 }
