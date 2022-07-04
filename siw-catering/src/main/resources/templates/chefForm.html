@@ -33,17 +33,19 @@
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
 						<div>
-							Nome Chef: <input type="text" th:field="*{nome}"> <p
-								th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+							Nome Chef: <input type="text" th:field="*{nome}">
+							<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
 						</div>
 
 						<div>
-							Cognome Chef: <input type="text" th:field="*{cognome}"> <p
-								th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p>
+							Cognome Chef: <input type="text" th:field="*{cognome}">
+							<p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p>
 						</div>
 
 						<div>
 							Nazionalità Chef: <input type="text" th:field="*{nazionalita}">
+							<p th:if="${#fields.hasErrors('nazionalita')}"
+								th:errors="*{nazionalita}"></p>
 						</div>
 
 						<div>

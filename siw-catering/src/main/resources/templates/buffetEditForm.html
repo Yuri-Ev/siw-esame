@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Dati Piatto</title>
+<title>Form Buffet</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -17,7 +17,7 @@
 					<img src="/css/capg.png" width="50" height="40" align="left">
 					NOME
 					<div class="menu-log">
-						<a th:href="@{/login}"><b>Login</b></a>
+						<a th:href="@{/}"><b>Login</b></a>
 					</div>
 				</nav>
 			</div>
@@ -27,36 +27,50 @@
 				<div class="flex1">
 					<x> </br>
 
-					<div>
-						<y>Riepilogo dati piatto</y>
+					<y>Inserisci i dati del buffet da inserire:</y>
+					<form th:action="@{'/admin/buffet/edit/' + ${buffet.id}}" method="post" th:object="${buffet}">
+						<div th:if="${#fields.hasGlobalErrors()}">
+							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+						</div>
 						<div>
-							<span th:text="${piatto.nome}">Carbonara</span> <span
-								th:text="${piatto.descrizione}">Descrizione</span>
+							Nome buffet: <input type="text" th:field="*{nome}">
+							<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
 						</div>
 
 						<div>
-							<h4>Ingredienti presenti nel piatto:</h4>
-							<l> <a th:each="ingrediente : ${piatto.ingredienti}"
-								th:text="${ingrediente.nome} + ' '" href="ingrediente.html"
-								th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">Guanciale</a></l>
+							Descrizione buffet: <input type="text" th:field="*{descrizione}">
 						</div>
-					</div>
 
-					<div th:if="${buffetsConPiatto}">
-						
-							<div th:if="${buffetsConPiatto.size() != 0}">
-								<p>Buffet in cui é presente questo piatto:</p>
-								<div th:each=buffet:${buffetsConPiatto}>
-									<a th:text="${buffet.nome}" href="buffet.html"
-										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a> </br> </br>
-								</div>
-								</a>
+						<div>
+							</br>
+							<p>Seleziona i piatti presenti nel buffet</p>
+							<fieldset>
+								<legend>Piatti registrati</legend>
+								<input th:each=piatto:${piatti} type="checkbox"
+									th:text="${piatto.nome} + ' '" th:field="*{piattiProposti}"
+									th:value="${piatto.id}">
+							</fieldset>
+							<p th:if="${#fields.hasErrors('piattiProposti')}"
+								th:errors="*{piattiProposti}"></p>
+						</div>
+						<div>
+							</br>
+
+							<div>
+								<p>Seleziona lo Chef che ha proposto il buffet</p>
+
+								<select th:field="*{propositore}">
+									<option th:each=chef:${chefs} th:value="${chef.id}"
+										th:text="${chef.nome} + '  ' + ${chef.cognome}">Chef
+									</option>
+								</select>
+								<p th:if="${#fields.hasErrors('propositore')}"
+									th:errors="*{propositore}"></p>
 							</div>
 
-							<div th:unless="${buffetsConPiatto.size() != 0}">
-								<p>Non ci sono buffet con questo piatto</p>
-							</div>
+							<button type="submit">Conferma</button>
 						</div>
+					</form>
 
 					</x>
 				</div>
@@ -86,7 +100,7 @@
 
 		<!-- Footer Section -->
 		<footer>
-			<a th:href="@{/admin}">Home</a>
+			<a th:href="@{/user}">Home</a>
 		</footer>
 	</div>
 

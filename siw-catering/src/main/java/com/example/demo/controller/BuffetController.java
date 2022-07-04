@@ -35,7 +35,7 @@ public class BuffetController {
 	@Autowired
 	ChefService chefService;
 
-	
+
 	@GetMapping("/buffets")
 	public String getListaBuffets(Model model) {
 		List<Buffet> buffets = buffetService.findAll();
@@ -88,4 +88,31 @@ public class BuffetController {
 		model.addAttribute("buffets", buffetService.findAll());
 		return "buffets.html";
 	}
+
+
+	@GetMapping("/admin/editBuffet/{id}")
+	public String toEditBuffet(@PathVariable("id") Long id, Model model) {
+		Buffet buffet = buffetService.findById(id);
+		model.addAttribute("buffet",buffet);
+		model.addAttribute("vecchioNomeBuffet",buffet.getNome());
+		List<Piatto> piatti = piattoService.findAll();
+		model.addAttribute("piatti",piatti);
+		List<Chef> chefs = chefService.findAll();
+		model.addAttribute("chefs",chefs);
+		return "buffetEditForm.html";
+	}
+
+	@PostMapping("/admin/buffet/edit/{id}")
+	public String editBuffet(@Valid @ModelAttribute("buffet") Buffet buffet,BindingResult bindingResult, Model model) {
+		validator.validate(buffet, bindingResult);
+		if (!bindingResult.hasErrors()) {
+			buffetService.save(buffet);
+			model.addAttribute("buffet",buffet);
+			return "buffet.html";
+		}
+		model.addAttribute("piatti",piattoService.findAll());
+		model.addAttribute("chefs",chefService.findAll());
+		return "buffetEditForm.html";
+	}
+
 }
