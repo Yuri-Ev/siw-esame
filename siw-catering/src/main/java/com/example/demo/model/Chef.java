@@ -1,11 +1,17 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 public class Chef {
@@ -25,6 +31,9 @@ public class Chef {
 	@NotBlank
 	private String nazionalita;
 
+	@OneToMany(mappedBy = "propositore")
+	@Cascade(CascadeType.DELETE)
+	private List<Buffet> buffetProposti;
 	
 	
 	public String getNome() {
@@ -57,6 +66,14 @@ public class Chef {
 
 	public void setNazionalita(String nazionalita) {
 		this.nazionalita = nazionalita;
+	}
+
+	public List<Buffet> getBuffetProposti() {
+		return buffetProposti;
+	}
+
+	public void setBuffetProposti(List<Buffet> buffetProposti) {
+		this.buffetProposti = buffetProposti;
 	}
 
 }
