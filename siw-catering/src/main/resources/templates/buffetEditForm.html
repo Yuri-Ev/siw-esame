@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Form Chef</title>
+<title>Form Buffet</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
@@ -27,31 +27,51 @@
 				<div class="flex1">
 					<x> </br>
 
-					<y>Inserisci i dati dello chef da inserire:</y>
-					<form th:action="@{/chef}" method="post" th:object="${chef}">
+					<y>Inserisci i dati del buffet da inserire:</y>
+					<form th:action="@{'/admin/buffet/edit/' + ${buffet.id}}" method="post" th:object="${buffet}">
 						<div th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
 						<div>
-							Nome Chef: <input type="text" th:field="*{nome}">
+							Nome buffet: <input type="text" th:field="*{nome}">
 							<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
 						</div>
 
 						<div>
-							Cognome Chef: <input type="text" th:field="*{cognome}">
-							<p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p>
+							Descrizione buffet: <input type="text" th:field="*{descrizione}">
 						</div>
 
 						<div>
-							Nazionalità Chef: <input type="text" th:field="*{nazionalita}">
-							<p th:if="${#fields.hasErrors('nazionalita')}"
-								th:errors="*{nazionalita}"></p>
+							</br>
+							<p>Seleziona i piatti presenti nel buffet</p>
+							<fieldset>
+								<legend>Piatti registrati</legend>
+								<input th:each=piatto:${piatti} type="checkbox"
+									th:text="${piatto.nome} + ' '" th:field="*{piattiProposti}"
+									th:value="${piatto.id}">
+							</fieldset>
+							<p th:if="${#fields.hasErrors('piattiProposti')}"
+								th:errors="*{piattiProposti}"></p>
 						</div>
-
 						<div>
+							</br>
+
+							<div>
+								<p>Seleziona lo Chef che ha proposto il buffet</p>
+
+								<select th:field="*{propositore}">
+									<option th:each=chef:${chefs} th:value="${chef.id}"
+										th:text="${chef.nome} + '  ' + ${chef.cognome}">Chef
+									</option>
+								</select>
+								<p th:if="${#fields.hasErrors('propositore')}"
+									th:errors="*{propositore}"></p>
+							</div>
+
 							<button type="submit">Conferma</button>
 						</div>
 					</form>
+
 					</x>
 				</div>
 				<div class="flex2">

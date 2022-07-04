@@ -34,6 +34,10 @@
 								th:href="@{'/buffet' + '/' + ${buffet.id}}"
 								th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}">Buffet
 							</a> <span> <a href="buffet.html"
+									th:href="@{'/admin/editBuffet' + '/' + ${buffet.id}}"
+									th:text=Modifica>Modifica</a>
+									
+									 <a href="buffet.html"
 									th:href="@{'/admin/toDeleteBuffet' + '/' + ${buffet.id}}"
 									th:text=Rimuovi>Rimuovi</a></span></li>
 						</ul>
