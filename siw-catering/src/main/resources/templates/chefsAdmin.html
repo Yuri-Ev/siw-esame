@@ -32,13 +32,13 @@
 						<y>Elenco chef:</y>
 						<div>
 							<div>
-								<p th:each=chef:${chefs}><a href="chef.html"
+								<p th:each=chef:${chefs}><l><a href="chef.html"
 									th:href="@{'/chefAdmin' + '/' + ${chef.id}}"
-									th:text="${chef.nome}+ ' ' + ${chef.cognome}"><l>Antonino
-										Cannavacciuolo</l></a> <span> 
+									th:text="${chef.nome}+ ' ' + ${chef.cognome}">Antonino
+										Cannavacciuolo</a></l> <span> 
 										<a href="chef.html"
 										th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}"
-										th:text=Rimuovi><h4>Rimuovi</h4></a></span></p>
+										th:text=Rimuovi>Rimuovi</a></br></span></p>
 							</div>
 						</div>
 					</div>

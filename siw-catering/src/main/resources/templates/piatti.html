@@ -32,10 +32,10 @@
 						<y>Elenco piatti:</y>
 						<div>
 							<p>
-								<span th:each=piatto:${piatti}><a href="piatto.html"
+								<span th:each=piatto:${piatti}><l><a href="piatto.html"
 									th:href="@{'/piatto' + '/' + ${piatto.id}}"
-									th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}"><l>Carbonara
-										Descrizione</l></a></span>
+									th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Carbonara
+										Descrizione</a></l></br></span>
 							</p>
 						</div>
 					</div>

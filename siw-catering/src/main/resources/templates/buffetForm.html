@@ -58,7 +58,7 @@
 							<div>
 								<h4>Seleziona lo Chef che ha proposto il buffet</h4>
 
-								<select th:field="*{propositore}">
+								<select th:field="*{propositore}" style="width:150px">
 									<option th:each=chef:${chefs} th:value="${chef.id}"
 										th:text="${chef.nome} + '  ' + ${chef.cognome}">Chef
 									</option>

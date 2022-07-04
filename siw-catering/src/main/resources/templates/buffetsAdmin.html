@@ -34,12 +34,14 @@
 								th:href="@{'/buffetAdmin' + '/' + ${buffet.id}}"
 								th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}">Buffet
 
-							</a></l>
-							<div th:if="${buffets.size() != 0}"> 									
+							</a></l><span> <a href="buffet.html"
+									th:href="@{'/admin/editBuffet' + '/' + ${buffet.id}}"
+									th:text=Modifica>Modifica</a>
+							
+																
 									 <a href="buffetAdmin.html"
 									th:href="@{'/admin/toDeleteBuffet' + '/' + ${buffet.id}}"
-									th:text=Rimuovi><h4>Rimuovi</h4></a></span></p>
-									</div>
+									th:text=Rimuovi>Rimuovi</a></br></span></p>
 						</div>
 					</div>
 					</x>

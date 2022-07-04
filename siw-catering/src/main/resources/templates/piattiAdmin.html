@@ -32,12 +32,12 @@
 						<y>Elenco piatti:</y>
 						<div>
 							<div>
-								<p th:each=piatto:${piatti}><a href="piatto.html"
+								<p th:each=piatto:${piatti}><l><a href="piatto.html"
 									th:href="@{'/piattoAdmin' + '/' + ${piatto.id}}"
-									th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}"><l>Carbonara
-										Descrizione</l></a> <span> <a href="piatto.html"
+									th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Carbonara
+										Descrizione</a></l> <span> <a href="piatto.html"
 										th:href="@{'/admin/toDeletePiatto' + '/' + ${piatto.id}}"
-										th:text=Rimuovi><h4>Rimuovi</h4></a></span></p>
+										th:text=Rimuovi>Rimuovi</a></br></span></p>
 							</div>
 						</div>
 					</div>
