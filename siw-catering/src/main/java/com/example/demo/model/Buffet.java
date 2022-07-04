@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -26,9 +27,11 @@ public class Buffet {
 	@Size(max = 100)
 	private String descrizione;
 
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Chef propositore;
 	
+	@NotNull
 	@ManyToMany
 	private List<Piatto> piattiProposti;
 	

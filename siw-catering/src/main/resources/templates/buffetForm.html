@@ -50,6 +50,7 @@
 									th:text="${piatto.nome} + ' '" th:field="*{piattiProposti}"
 									th:value="${piatto.id}">
 							</fieldset>
+							<p th:if="${#fields.hasErrors('piattiProposti')}" th:errors="*{piattiProposti}"></p>
 						</div>
 						<div>
 							</br>
@@ -62,6 +63,7 @@
 										th:text="${chef.nome} + '  ' + ${chef.cognome}">Chef
 									</option>
 								</select>
+								<p th:if="${#fields.hasErrors('propositore')}" th:errors="*{propositore}"></p>
 							</div>
 
 							<button type="submit">Conferma</button>
