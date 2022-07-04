@@ -15,7 +15,7 @@
 				<!-- Menu Navigation Bar -->
 				<nav class="menu">
 					<img src="/css/capg.png" width="50" height="40" align="left">
-					NOME
+					CATERING.IT
 					<div class="menu-log">
 						<a th:href="@{/login}"><b>Login</b></a>
 					</div>
@@ -31,9 +31,9 @@
 					<div>
 						<y>Riepilogo dati chef</y>
 						<div>
-							<span th:text="${chef.nome}">Antonino</span> <span
-								th:text="${chef.cognome}">Cannavacciuolo</span> <span
-								th:text="${chef.nazionalita}">Italia</span>
+							Nome:<span th:text="${chef.nome}">Antonino</span> </br>
+							Cognome:<span th:text="${chef.cognome}">Cannavacciuolo</span> </br>
+							Nazionalità:<span th:text="${chef.nazionalita}">Italia</span></br>
 						</div>
 
 						<div th:if="${buffetsProposti}">
@@ -41,8 +41,8 @@
 							<div th:if="${buffetsProposti.size() != 0}">
 								<p>Buffet proposti dallo chef:</p>
 								<div th:each=buffet:${buffetsProposti}>
-									<a th:text="${buffet.nome}" href="buffet.html"
-										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a> </br> </br>
+									<l><a th:text="${buffet.nome}" href="buffet.html"
+										th:href="@{'/buffet' + '/' + ${buffet.id}}"> </a></l></br></br>
 								</div>
 								</a>
 							</div>
@@ -59,19 +59,19 @@
 				<div class="flex2">
 					<div class="flex3">
 						<a th:href="@{/buffets}"><img border="0"
-							style="width: 100%; max-width: 400px" src="/css/buffet1.png"
+							style="width: 100%; max-width: 275px" src="/css/buffet1.png"
 							onmouseover="this.src='/css/Buffet.jpg';"
 							onmouseout="this.src='/css/buffet1.png';" /></a>
 					</div>
 					<div class="flex3">
 						<a th:href="@{/piatti}"><img border="0"
-							style="width: 100%; max-width: 400px" src="/css/PIATTO.jpg"
+							style="width: 100%; max-width: 275px" src="/css/PIATTO.jpg"
 							onmouseover="this.src='/css/Piatti.jpg';"
 							onmouseout="this.src='/css/PIATTO.jpg';" /></a>
 					</div>
 					<div class="flex3">
 						<a th:href="@{/chefs}"><img border="0"
-							style="width: 100%; max-width: 400px" src="/css/TOQUE.jpg"
+							style="width: 100%; max-width: 275px" src="/css/TOQUE.jpg"
 							onmouseover="this.src='/css/Chef.jpg';"
 							onmouseout="this.src='/css/TOQUE.jpg';" /></a>
 					</div>
