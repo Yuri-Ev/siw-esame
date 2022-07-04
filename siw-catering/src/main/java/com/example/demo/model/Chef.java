@@ -22,6 +22,7 @@ public class Chef {
 	@NotBlank
 	private String cognome;
 	
+	@NotBlank
 	private String nazionalita;
 
 	
