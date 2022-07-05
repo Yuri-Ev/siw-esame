@@ -32,7 +32,7 @@
 						<div>
 							<p th:each=buffet:${buffets}><l><a href="buffet.html"
 								th:href="@{'/buffetAdmin' + '/' + ${buffet.id}}"
-								th:text="${buffet.nome}+ ' ' + ${buffet.descrizione}">Buffet
+								th:text="${buffet.nome}">Buffet
 
 							</a></l><span> <a href="buffet.html"
 									th:href="@{'/admin/editBuffet' + '/' + ${buffet.id}}"

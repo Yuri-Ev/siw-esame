@@ -34,7 +34,7 @@
 						<div>
 							Nome piatto: <input type="text" th:field="*{nome}"> 
 							<p
-								th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+								th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" th:style="'color:red'">
 							</p>
 						</div>
 

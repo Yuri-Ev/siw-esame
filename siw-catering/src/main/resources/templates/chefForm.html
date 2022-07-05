@@ -27,25 +27,25 @@
 				<div class="flex1">
 					<x> </br>
 
-					<y>Inserisci i dati dello chef da inserire:</y>
+					<y>Inserisci i dati dello chef da inserire:</y></br>
 					<form th:action="@{/chefAdmin}" method="post" th:object="${chef}">
 						<div th:if="${#fields.hasGlobalErrors()}">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
 						<div>
 							Nome Chef: <input type="text" th:field="*{nome}">
-							<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+							<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" th:style="'color:red'"></p>
 						</div>
 
 						<div>
 							Cognome Chef: <input type="text" th:field="*{cognome}">
-							<p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p>
+							<p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}" th:style="'color:red'"></p>
 						</div>
 
 						<div>
 							Nazionalità Chef: <input type="text" th:field="*{nazionalita}">
 							<p th:if="${#fields.hasErrors('nazionalita')}"
-								th:errors="*{nazionalita}"></p>
+								th:errors="*{nazionalita}" th:style="'color:red'"></p>
 						</div>
 
 						<div>

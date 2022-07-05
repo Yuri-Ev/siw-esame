@@ -29,12 +29,12 @@
 
 					<y>Inserisci i dati del buffet da inserire:</y>
 					<form th:action="@{'/admin/buffet/edit/' + ${buffet.id}}" method="post" th:object="${buffet}">
-						<div th:if="${#fields.hasGlobalErrors()}">
+						<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
 							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 						</div>
 						<div>
 							Nome buffet: <input type="text" th:field="*{nome}">
-							<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+							<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" th:style="'color:red'"></p>
 						</div>
 
 						<div>

@@ -34,7 +34,7 @@
 							<div>
 								<p th:each=piatto:${piatti}><l><a href="piatto.html"
 									th:href="@{'/piattoAdmin' + '/' + ${piatto.id}}"
-									th:text="${piatto.nome}+ ' ' + ${piatto.descrizione}">Carbonara
+									th:text="${piatto.nome}">Carbonara
 										Descrizione</a></l> <span> <a href="piatto.html"
 										th:href="@{'/admin/toDeletePiatto' + '/' + ${piatto.id}}"
 										th:text=Rimuovi>Rimuovi</a></br></span></p>
